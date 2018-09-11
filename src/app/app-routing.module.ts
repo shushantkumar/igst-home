@@ -19,6 +19,7 @@ import {BottransComponent} from './homeboard/bottrans/bottrans.component';
 import {BuytransComponent} from './homeboard/buytrans/buytrans.component';
 import {SelltransComponent} from './homeboard/selltrans/selltrans.component';
 import {SoldtransComponent} from './homeboard/soldtrans/soldtrans.component';
+import {UpdateComponent} from './homeboard/update/update.component';
 
 const routes: Routes = [
 
@@ -61,6 +62,10 @@ const routes: Routes = [
   {
     path: 'home/soldtrans',
     component:SoldtransComponent
+  },
+  {
+    path: 'home/update',
+    component:UpdateComponent
   },
   // {
   //   path: 'allposts',

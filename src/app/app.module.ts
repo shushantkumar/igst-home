@@ -42,6 +42,7 @@ import { BuytransComponent } from './homeboard/buytrans/buytrans.component';
 import { SelltransComponent } from './homeboard/selltrans/selltrans.component';
 import { SoldtransComponent } from './homeboard/soldtrans/soldtrans.component';
 import { BottransComponent } from './homeboard/bottrans/bottrans.component';
+import { UpdateComponent } from './homeboard/update/update.component';
 
 @NgModule({
   declarations: [
@@ -68,7 +69,8 @@ import { BottransComponent } from './homeboard/bottrans/bottrans.component';
     BuytransComponent,
     SelltransComponent,
     SoldtransComponent,
-    BottransComponent
+    BottransComponent,
+    UpdateComponent
   ],
   imports: [
     BrowserModule,

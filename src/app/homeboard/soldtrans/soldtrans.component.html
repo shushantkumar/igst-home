@@ -1,3 +1,50 @@
-<p>
-  soldtrans works!
-</p>
+<app-homeboard></app-homeboard>
+<div class="container-fluid">
+  <div class="col-lg-3">
+    <div class="wrapper" style="margin-left: -30px">
+      <!-- Sidebar -->
+      <nav id="sidebar">
+          <ul class="list-unstyled components">
+              <li>
+                <a href="home"><i class="fa fa-home" style="margin: 0px 12px 0px 10px"></i> Dashboard  </a>
+              </li>
+              <li>
+                <a href="home/products"><i class="fa fa-cubes" style="margin: 0px 12px 0px 10px"></i> Products  </a>
+              </li>
+              <li>
+
+                  <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-dolly" style="margin: 0px 12px 0px 10px"></i> Make Transactions  </a>
+                  <ul class="collapse list-unstyled" id="homeSubmenu">
+                      <li>
+                          <a href="home/buytrans"><i class="fa fa-file-import" style="margin: 0px 12px 0px 10px"></i> Buy Transactions  </a>
+                      </li>
+                      <li>
+                          <a href="home/selltrans"><i class="fa fa-file-export" style="margin: 0px 12px 0px 10px"></i> Sell Transactions  </a>
+                      </li>
+                  </ul>
+              </li>
+
+              <li class="active">
+                  <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-history" style="margin: 0px 12px 0px 10px"></i> Past Transactions  </a>
+                  <ul class="collapse list-unstyled" id="pageSubmenu">
+                      <li>
+                          <a href="home/bottrans"><i class="fa fa-sort-amount-up" style="margin: 0px 12px 0px 10px"></i> Imports  </a>
+                      </li>
+                      <li>
+                          <a href="home/soldtrans"><i class="fa fa-sort-amount-down" style="margin: 0px 12px 0px 10px"></i> Exports  </a>
+                      </li>
+                  </ul>
+              </li>
+              <li>
+                  <a href="home/update"><i class="fa fa-edit" style="margin: 0px 12px 0px 10px"></i> Edit Company Details  </a>
+              </li>
+          </ul>
+      </nav>
+
+    </div>
+  </div>
+</div>
+
+​
+
+<app-footer></app-footer>
