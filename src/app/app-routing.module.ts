@@ -13,6 +13,8 @@ import { TestryComponent } from './testry/testry.component';
 import { AboutusComponent } from './aboutus/aboutus.component';
 import { JoinusComponent } from './joinus/joinus.component';
 import { FaqComponent } from './faq/faq.component';
+import {HomeboardComponent} from './homeboard/homeboard.component';
+import {ProductsComponent} from './homeboard/products/products.component';
 
 const routes: Routes = [
 
@@ -20,42 +22,42 @@ const routes: Routes = [
     path: '',
     component:HomeComponent
   },
-  {
-    path: 'allposts',
-    component: AllpostsComponent
-  },
-  {
-    path: 'allrequests',
-    component: AllrequestsComponent
-  },
-  {
-    path: 'dashboard',
-    component: DashboardComponent
-  },
-  {
-    path: 'about',
-    component: AboutComponent
-  },
-  {
-    path: 'post',
-    component: PostComponent
-  },
-  {
-    path: 'request',
-    component: RequestComponent
-  },
-  {
-    path: 'product',
-    component: ProdListComponent
-  },
-  {
-    path: 'signin',
-    component: SignInComponent
-  },
-  {
-    path: 'testry',
-    component: TestryComponent
-  },
+  // {
+  //   path: 'allposts',
+  //   component: AllpostsComponent
+  // },
+  // {
+  //   path: 'allrequests',
+  //   component: AllrequestsComponent
+  // },
+  // {
+  //   path: 'dashboard',
+  //   component: DashboardComponent
+  // },
+  // {
+  //   path: 'about',
+  //   component: AboutComponent
+  // },
+  // {
+  //   path: 'post',
+  //   component: PostComponent
+  // },
+  // {
+  //   path: 'request',
+  //   component: RequestComponent
+  // },
+  // {
+  //   path: 'product',
+  //   component: ProdListComponent
+  // },
+  // {
+  //   path: 'signin',
+  //   component: SignInComponent
+  // },
+  // {
+  //   path: 'testry',
+  //   component: TestryComponent
+  // },
   {
     path: 'aboutus',
     component: AboutusComponent
@@ -67,6 +69,14 @@ const routes: Routes = [
   {
     path: 'faq',
     component:FaqComponent
+  },
+  {
+    path: 'home',
+    component:HomeboardComponent
+  },
+  {
+    path: 'home/products',
+    component:ProductsComponent
   },
 ];
 
