@@ -36,6 +36,12 @@ import { AboutusComponent } from './aboutus/aboutus.component';
 import { JoinusComponent } from './joinus/joinus.component';
 import { FaqComponent } from './faq/faq.component';
 import { HomeboardComponent } from './homeboard/homeboard.component';
+import { MainComponent } from './homeboard/main/main.component';
+import { ProductsComponent } from './homeboard/products/products.component';
+import { BuytransComponent } from './homeboard/buytrans/buytrans.component';
+import { SelltransComponent } from './homeboard/selltrans/selltrans.component';
+import { SoldtransComponent } from './homeboard/soldtrans/soldtrans.component';
+import { BottransComponent } from './homeboard/bottrans/bottrans.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +62,13 @@ import { HomeboardComponent } from './homeboard/homeboard.component';
     AboutusComponent,
     JoinusComponent,
     FaqComponent,
-    HomeboardComponent
+    HomeboardComponent,
+    MainComponent,
+    ProductsComponent,
+    BuytransComponent,
+    SelltransComponent,
+    SoldtransComponent,
+    BottransComponent
   ],
   imports: [
     BrowserModule,
