@@ -1,81 +1,49 @@
 <app-homeboard></app-homeboard>
+<div class="container-fluid">
+  <div class="col-lg-3">
+    <div class="wrapper" style="margin-left: -30px">
+      <!-- Sidebar -->
+      <nav id="sidebar">
+          <ul class="list-unstyled components">
+              <li class="active">
+                <a href="home"><i class="fa fa-home" style="margin: 0px 12px 0px 10px"></i> Dashboard  </a>
+              </li>
+              <li>
+                <a href="home/products"><i class="fa fa-cubes" style="margin: 0px 12px 0px 10px"></i> Products  </a>
+              </li>
+              <li>
 
-<div class="wrapper">
-  <!-- Sidebar -->
-  <nav id="sidebar">
-      <ul class="list-unstyled components">
-          <li>
-            <a href="home">Dashboard</a>
-          </li>
-          <li>
-            <a href="home/products">Products</a>
-          </li>
-          <li class="active">
+                  <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-dolly" style="margin: 0px 12px 0px 10px"></i> Make Transactions  </a>
+                  <ul class="collapse list-unstyled" id="homeSubmenu">
+                      <li>
+                          <a href="home/buytrans"><i class="fa fa-file-import" style="margin: 0px 12px 0px 10px"></i> Buy Transactions  </a>
+                      </li>
+                      <li>
+                          <a href="home/selltrans"><i class="fa fa-file-export" style="margin: 0px 12px 0px 10px"></i> Sell Transactions  </a>
+                      </li>
+                  </ul>
+              </li>
 
-              <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Make Transactions</a>
-              <ul class="collapse list-unstyled" id="homeSubmenu">
-                  <li>
-                      <a href="home/buytrans">Buy Transactions</a>
-                  </li>
-                  <li>
-                      <a href="home/selltrans">Sell Transactions</a>
-                  </li>
-              </ul>
-          </li>
+              <li>
+                  <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-history" style="margin: 0px 12px 0px 10px"></i> Past Transactions  </a>
+                  <ul class="collapse list-unstyled" id="pageSubmenu">
+                      <li>
+                          <a href="home/bottrans"><i class="fa fa-sort-amount-up" style="margin: 0px 12px 0px 10px"></i> Imports  </a>
+                      </li>
+                      <li>
+                          <a href="home/soldtrans"><i class="fa fa-sort-amount-down" style="margin: 0px 12px 0px 10px"></i> Exports  </a>
+                      </li>
+                  </ul>
+              </li>
+              <li>
+                  <a href="#"><i class="fa fa-edit" style="margin: 0px 12px 0px 10px"></i> Edit Company Details  </a>
+              </li>
+          </ul>
+      </nav>
 
-          <li>
-              <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Past Transactions</a>
-              <ul class="collapse list-unstyled" id="pageSubmenu">
-                  <li>
-                      <a href="home/bottrans">Imports</a>
-                  </li>
-                  <li>
-                      <a href="home/soldtrans">Exports</a>
-                  </li>
-              </ul>
-          </li>
-          <li>
-              <a href="#">Edit Company Details</a>
-          </li>
-      </ul>
-  </nav>
-
-</div>
-<!-- <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
- -->
-
-<!-- 
-Icon Bar (Sidebar - hidden on small screens)
-<nav class="w3-sidebar w3-bar-block w3-small w3-hide-small w3-center">
-  <a href="#" class="w3-bar-item w3-button w3-padding-large w3-black">
-    <i class="fa fa-home w3-xxlarge"></i>
-    <p>HOME</p>
-  </a>
-  <a href="" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
-    <i class="fa fa-user w3-xxlarge"></i>
-    <p>ABOUT</p>
-  </a>
-  <a href="" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
-    <i class="fa fa-eye w3-xxlarge"></i>
-    <p>PHOTOS</p>
-  </a>
-  <a href="" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
-    <i class="fa fa-envelope w3-xxlarge"></i>
-    <p>CONTACT</p>
-  </a>
-</nav>
-
-Navbar on small screens (Hidden on medium and large screens)
-<div class="w3-top w3-hide-large w3-hide-medium" id="myNavbar">
-  <div class="w3-bar w3-black w3-opacity w3-hover-opacity-off w3-center w3-small">
-    <a href="#" class="w3-bar-item w3-button" style="width:25% !important">HOME</a>
-    <a href="#about" class="w3-bar-item w3-button" style="width:25% !important">ABOUT</a>
-    <a href="#photos" class="w3-bar-item w3-button" style="width:25% !important">PHOTOS</a>
-    <a href="#contact" class="w3-bar-item w3-button" style="width:25% !important">CONTACT</a>
+    </div>
   </div>
-</div> -->
+</div>
 
 ​
 
