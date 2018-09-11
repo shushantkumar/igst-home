@@ -13,14 +13,54 @@ import { TestryComponent } from './testry/testry.component';
 import { AboutusComponent } from './aboutus/aboutus.component';
 import { JoinusComponent } from './joinus/joinus.component';
 import { FaqComponent } from './faq/faq.component';
-import {HomeboardComponent} from './homeboard/homeboard.component';
+import {MainComponent} from './homeboard/main/main.component';
 import {ProductsComponent} from './homeboard/products/products.component';
+import {BottransComponent} from './homeboard/bottrans/bottrans.component';
+import {BuytransComponent} from './homeboard/buytrans/buytrans.component';
+import {SelltransComponent} from './homeboard/selltrans/selltrans.component';
+import {SoldtransComponent} from './homeboard/soldtrans/soldtrans.component';
 
 const routes: Routes = [
 
   {
     path: '',
     component:HomeComponent
+  },
+  {
+    path: 'aboutus',
+    component: AboutusComponent
+  },
+  {
+    path: 'joinus',
+    component: JoinusComponent
+  },
+  {
+    path: 'faq',
+    component:FaqComponent
+  },
+  {
+    path: 'home',
+    component:MainComponent
+  },
+  {
+    path: 'home/products',
+    component:ProductsComponent
+  },
+  {
+    path: 'home/bottrans',
+    component:BottransComponent
+  },
+  {
+    path: 'home/buytrans',
+    component:BuytransComponent
+  },
+  {
+    path: 'home/selltrans',
+    component:SelltransComponent
+  },
+  {
+    path: 'home/soldtrans',
+    component:SoldtransComponent
   },
   // {
   //   path: 'allposts',
@@ -58,26 +98,6 @@ const routes: Routes = [
   //   path: 'testry',
   //   component: TestryComponent
   // },
-  {
-    path: 'aboutus',
-    component: AboutusComponent
-  },
-  {
-    path: 'joinus',
-    component: JoinusComponent
-  },
-  {
-    path: 'faq',
-    component:FaqComponent
-  },
-  {
-    path: 'home',
-    component:HomeboardComponent
-  },
-  {
-    path: 'home/products',
-    component:ProductsComponent
-  },
 ];
 
 @NgModule({
