@@ -25,6 +25,7 @@ import { AboutService } from './dashboard/about/about.service';
 import {PostService} from './dashboard/post/post.service';
 import {RequestService} from './dashboard/request/request.service';
 import { TestryService } from './testry/testry.service';
+import { ProductsService } from './homeboard/products/products.service';
 
 import {HttpClientModule, HttpClient} from '@angular/common/http';
 import { HttpModule } from '@angular/http'; 
@@ -87,7 +88,8 @@ import { UpdateComponent } from './homeboard/update/update.component';
     PostService,
     RequestService,
     CookieService ,
-    TestryService
+    TestryService,
+    ProductsService
   ],
   bootstrap: [AppComponent]
 })

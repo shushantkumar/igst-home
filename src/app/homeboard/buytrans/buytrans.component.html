@@ -13,7 +13,7 @@
               </li>
               <li class="active">
 
-                  <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-dolly" style="margin: 0px 12px 0px 10px"></i> Make Transactions  </a>
+                  <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-dolly" style="margin: 0px 12px 0px 10px"></i> Make Transactions  <i class="fa fa-caret-down" style="margin-left: 20px"></i></a>
                   <ul class="collapse list-unstyled" id="homeSubmenu">
                       <li>
                           <a href="home/buytrans"><i class="fa fa-file-import" style="margin: 0px 12px 0px 10px"></i> Buy Transactions  </a>
@@ -25,7 +25,7 @@
               </li>
 
               <li>
-                  <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-history" style="margin: 0px 12px 0px 10px"></i> Past Transactions  </a>
+                  <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-history" style="margin: 0px 12px 0px 10px"></i> Past Transactions  <i class="fa fa-caret-down" style="margin-left: 29px"></i></a>
                   <ul class="collapse list-unstyled" id="pageSubmenu">
                       <li>
                           <a href="home/bottrans"><i class="fa fa-sort-amount-up" style="margin: 0px 12px 0px 10px"></i> Imports  </a>
@@ -42,6 +42,63 @@
       </nav>
 
     </div>
+  </div>
+  <div class="col-lg-9">
+    <div class="container-fluid">
+        <div class="well well-sm">
+            <form class="form-horizontal" method="post">
+                <fieldset>
+                    <legend class="text-center header">Buy new products</legend>
+                    <div class="container-fluid">
+                        <div class="form-group col-lg-12">
+                            <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon"></i></span>
+                            <div class="col-md-8">
+                                <input id="fromComp" name="fromComp" type="text" placeholder="From company name goes here..." class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container-fluid">
+                        <div class="form-group col-lg-6">
+                            <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon"></i></span>
+                            <div class="col-md-8">
+                                <input id="fname" name="name" type="text" placeholder="First Name" class="form-control">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group col-lg-6">
+                            <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon"></i></span>
+                            <div class="col-md-8">
+                                <input id="lname" name="name" type="text" placeholder="Last Name" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-phone-square bigicon"></i></span>
+                        <div class="col-md-8">
+                            <input id="phone" name="phone" type="text" placeholder="Phone" class="form-control">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-pencil-square-o bigicon"></i></span>
+                        <div class="col-md-8">
+                            <textarea class="form-control" id="message" name="message" placeholder="Enter your massage for us here. We will get back to you within 2 business days." rows="7"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-12 text-center">
+                            <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+
+        </div>
+    </div>
+
   </div>
 </div>
 

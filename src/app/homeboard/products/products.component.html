@@ -13,7 +13,7 @@
               </li>
               <li>
 
-                  <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-dolly" style="margin: 0px 12px 0px 10px"></i> Make Transactions  </a>
+                  <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-dolly" style="margin: 0px 12px 0px 10px"></i> Make Transactions <i class="fa fa-caret-down" style="margin-left: 20px"></i> </a>
                   <ul class="collapse list-unstyled" id="homeSubmenu">
                       <li>
                           <a href="home/buytrans"><i class="fa fa-file-import" style="margin: 0px 12px 0px 10px"></i> Buy Transactions  </a>
@@ -25,7 +25,7 @@
               </li>
 
               <li>
-                  <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-history" style="margin: 0px 12px 0px 10px"></i> Past Transactions  </a>
+                  <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-history" style="margin: 0px 12px 0px 10px"></i> Past Transactions  <i class="fa fa-caret-down" style="margin-left: 29px"></i></a>
                   <ul class="collapse list-unstyled" id="pageSubmenu">
                       <li>
                           <a href="home/bottrans"><i class="fa fa-sort-amount-up" style="margin: 0px 12px 0px 10px"></i> Imports  </a>
@@ -43,23 +43,32 @@
 
     </div>
   </div>
+
   <div class="col-lg-9">
         <div class="container-fluid">
+                <div class="row" style="padding: 20px">
+                    <div class="col-lg-1">
+                        <i class="fas fa-search" style="font-size:25px;padding-right:-60px"></i>
+                    </div>
+                    <div class="col-lg-9">
+                        <input id="search" class="form-control" type="text" placeholder="Search by any field..." [(ngModel)]="search" required>   
+                    </div>
+                </div>
                 <table class="table table-hover">
                         <thead>
                             <tr>
                                 <th>#</th>
                                 <th></th>
-                                <th>Product ID</th>
+                                <th>Product Code</th>
                                 <th>Product Name</th>
-                                <th>Cost Price</th>
-                                <th>GST Rate</th>
+                                <th>Cost Price (₹)</th>
+                                <th>GST Rate (%)</th>
                                 <th>Quantity</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
+                            <tr *ngFor="let meta of productsdata | filter:search">
                                 <th scope="row">1</th>
                                 <td>
                                     <fieldset class="form-group">
@@ -67,16 +76,12 @@
                                         <label for="checkbox1"></label>
                                     </fieldset>
                                 </td>
-                                <td>Ashley</td>
-                                <td>Lynwood</td>
-                                <td>@ashow</td>
-                                <td></td>
-                                <td></td>
+                                <td>{{meta.Product_Code}}</td>
+                                <td>{{meta.Product_Name}}</td>
+                                <td>{{meta.Cost_Price}}</td>
+                                <td>{{meta.GST_Rate}}</td>
+                                <td>{{meta.Quantity}}</td>
                                 <td>
-                                    <!-- <a class="blue-text" style="font-size:20px;color:blue;padding: 5px"><i class="fa fa-pen-square"></i></a>
-                                    <a class="teal-text" style="font-size:20px;color:red;padding: 5px"><i class="fa fa-trash-alt"></i></a> -->
-                                    <!-- <button id="save" class="col-lg-5 button-success" pButton type="button" (click)="postNewProduct($event)" iconPos="right" label="Save"><i class="fa fa-check"></i></button>
-                                    <button id="update" class="col-lg-5 button-info" pButton type="button" (click)="updateProduct($event)" label="Update"><i class="fas fa-sync"></i></button> -->
                                     <button type="button" class="btn btn-primary"><i class="far fa-edit" style="margin-right: 5px"></i>Edit</button>
                                     <button type="button" class="btn btn-danger"><i class="fa fa-trash-alt"style="margin-right: 5px"></i>Delete</button>
                                 </td>

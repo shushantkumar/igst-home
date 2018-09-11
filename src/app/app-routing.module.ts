@@ -71,10 +71,10 @@ const routes: Routes = [
   //   path: 'allposts',
   //   component: AllpostsComponent
   // },
-  // {
-  //   path: 'allrequests',
-  //   component: AllrequestsComponent
-  // },
+  {
+    path: 'allrequests',
+    component: AllrequestsComponent
+  },
   // {
   //   path: 'dashboard',
   //   component: DashboardComponent
