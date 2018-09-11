@@ -35,6 +35,7 @@ import {GoogleSignInComponent} from 'angular-google-signin';
 import { AboutusComponent } from './aboutus/aboutus.component';
 import { JoinusComponent } from './joinus/joinus.component';
 import { FaqComponent } from './faq/faq.component';
+import { HomeboardComponent } from './homeboard/homeboard.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,8 @@ import { FaqComponent } from './faq/faq.component';
     GoogleSignInComponent,
     AboutusComponent,
     JoinusComponent,
-    FaqComponent
+    FaqComponent,
+    HomeboardComponent
   ],
   imports: [
     BrowserModule,
