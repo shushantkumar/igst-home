@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
+// import { NgxSpinnerModule } from 'ngx-spinner';
 
 import { AppComponent } from './app.component';
 import { ProdListComponent } from './prod-list/prod-list.component';
@@ -26,6 +27,8 @@ import {PostService} from './dashboard/post/post.service';
 import {RequestService} from './dashboard/request/request.service';
 import { TestryService } from './testry/testry.service';
 import { ProductsService } from './homeboard/products/products.service';
+import { BottransService } from './homeboard/bottrans/bottrans.service';
+import { SoldtransService } from './homeboard/soldtrans/soldtrans.service';
 
 import {HttpClientModule, HttpClient} from '@angular/common/http';
 import { HttpModule } from '@angular/http'; 
@@ -78,7 +81,8 @@ import { UpdateComponent } from './homeboard/update/update.component';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    Ng2SearchPipeModule
+    Ng2SearchPipeModule,
+    // NgxSpinnerModule
   ],
   providers: [
     AllpostsService,
@@ -89,7 +93,9 @@ import { UpdateComponent } from './homeboard/update/update.component';
     RequestService,
     CookieService ,
     TestryService,
-    ProductsService
+    ProductsService,
+    BottransService,
+    SoldtransService
   ],
   bootstrap: [AppComponent]
 })

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 import {Router} from '@angular/router';
+// import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-home',
@@ -14,8 +15,15 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
 
-    console.log(this.cookieService.get('ENVuserID'));
-    console.log(this.cookieService.get('ENVtoken'));
+    // console.log(this.cookieService.get('ENVuserID'));
+    // console.log(this.cookieService.get('ENVtoken'));
+    // this.spinner.show();
+
+    // setTimeout(() => {
+    //     /** spinner ends after 5 seconds */
+    //     this.spinner.hide();
+    // }, 5000);
+    
   }
 
   gotoPost()
