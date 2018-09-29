@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
-// import { NgxSpinnerModule } from 'ngx-spinner';
 
 import { AppComponent } from './app.component';
 import { ProdListComponent } from './prod-list/prod-list.component';
@@ -82,7 +81,6 @@ import { UpdateComponent } from './homeboard/update/update.component';
     FormsModule,
     HttpClientModule,
     Ng2SearchPipeModule,
-    // NgxSpinnerModule
   ],
   providers: [
     AllpostsService,
