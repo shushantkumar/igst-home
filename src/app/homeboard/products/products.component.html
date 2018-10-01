@@ -82,7 +82,7 @@
                                 <td>{{meta.GST_Rate}}</td>
                                 <td>{{meta.Quantity}}</td>
                                 <td>
-                                    <button type="button" class="btn btn-primary"><i class="far fa-edit" style="margin-right: 5px"></i>Edit</button>
+                                    <button type="button" class="btn btn-primary"  data-toggle="modal" data-target="#updateRequestItem" (click)="updateRequest(requ)"><i class="far fa-edit" style="margin-right: 5px"></i>Edit</button>
                                     <button type="button" class="btn btn-danger"><i class="fa fa-trash-alt"style="margin-right: 5px"></i>Delete</button>
                                 </td>
                             </tr>
@@ -92,7 +92,67 @@
         </div>
     </div>
 </div>
+<div class="modal fade" id="updateRequestItem" role="dialog" style="margin-top:20px;">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content" style="background: url('https://us.123rf.com/450wm/fascinadora/fascinadora1607/fascinadora160700020/60259862-marble-board-empty-table-in-front-of-blurred-background-perspective-marble-table-over-blurred-colorf.jpg?ver=6');background-position: center;background-repeat: no-repeat;background-size: cover;">
+            <div class="card-body container" style="text-align:center;height:100%;width:100%;padding:30px"> 
+                <div class="col-lg-12" style="margin-bottom:25px">
+                    <b style="font-size:25px;">Update Item details below</b>
+                </div>
 
+                <div>
+                    <div class="form-group row" style="padding:10px 20px 10px 20px"> 
+                        <div class="col-lg-3"> 
+                            <label class="control-label" style="font-size:17px;color:#5D1049">Product Code</label>
+                        </div>
+                        <div class="col-lg-6">
+                            <input id="userAddress" type="text" class="form-control"  style="height: 40px;" [(ngModel)]="code" value={{particular.price}}>
+                        </div>
+                                
+                    </div>
+                    <div class="form-group row" style="padding:10px 20px 10px 20px"> 
+                        <div class="col-lg-3"> 
+                            <label class="control-label" style="font-size:17px">Product Name</label>
+                        </div>
+                        <div class="col-lg-6">
+                            <input id="userName" type="text" class="form-control"  style="height: 40px;" [(ngModel)]="name" value={{particular.name}}>
+                        </div>
+                        
+                    </div>
+                    <div class="form-group row" style="padding:10px 20px 10px 20px"> 
+                        <div class="col-lg-3"> 
+                            <label class="control-label" style="font-size:17px">Cost Price</label>
+                        </div>
+                        <div class="col-lg-6">
+                            <input id="userAddress" type="text" class="form-control"  style="height: 40px;" [(ngModel)]="price" value={{particular.price}}>
+                        </div>
+                            
+                    </div>
+                    <div class="form-group row" style="padding:10px 20px 10px 20px"> 
+                        <div class="col-lg-3"> 
+                            <label class="control-label" style="font-size:17px">GST Rate</label>
+                        </div>
+                        <div class="col-lg-6">
+                            <input id="userEmail" type="text" class="form-control"  style="height: 40px;" [(ngModel)]="gst" value={{particular.category}}>
+                        </div>
+                            
+                    </div>
+                    <div class="form-group row" style="padding:10px 20px 10px 20px"> 
+                        <div class="col-lg-3"> 
+                            <label class="control-label" style="font-size:17px">Quantity</label>
+                        </div>
+                        <div class="col-lg-6">
+                            <input id="userMobile" type="text" class="form-control"  style="height: 40px;"  [(ngModel)]="quantity" value={{particular.description}}>
+                        </div>
+                                
+                    </div>
+                    <button type="button" class="btn btn-primary"  (click)="updateRequestItem()"><i class="fas fa-check"></i><b style="padding-left:10px">Update</b></button>
+                    <button type="button" class="btn btn-danger"  (click)="deleteRequestItem()"><i class="far fa-trash-alt"></i><b style="padding-left:10px">Delete</b></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 ​
 
 <app-footer></app-footer>

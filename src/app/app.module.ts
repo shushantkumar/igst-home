@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
 
+
 import { AppComponent } from './app.component';
 import { ProdListComponent } from './prod-list/prod-list.component';
 import { FooterComponent } from './footer/footer.component';
@@ -28,6 +29,7 @@ import { TestryService } from './testry/testry.service';
 import { ProductsService } from './homeboard/products/products.service';
 import { BottransService } from './homeboard/bottrans/bottrans.service';
 import { SoldtransService } from './homeboard/soldtrans/soldtrans.service';
+import { HomeService } from './home/home.service';
 
 import {HttpClientModule, HttpClient} from '@angular/common/http';
 import { HttpModule } from '@angular/http'; 
@@ -73,7 +75,7 @@ import { UpdateComponent } from './homeboard/update/update.component';
     SelltransComponent,
     SoldtransComponent,
     BottransComponent,
-    UpdateComponent
+    UpdateComponent,
   ],
   imports: [
     BrowserModule,
@@ -93,7 +95,8 @@ import { UpdateComponent } from './homeboard/update/update.component';
     TestryService,
     ProductsService,
     BottransService,
-    SoldtransService
+    SoldtransService,
+    HomeService
   ],
   bootstrap: [AppComponent]
 })

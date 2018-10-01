@@ -31,14 +31,93 @@ ksahs
           <li><a href="#service">Service</a></li>
           <li><a href="#portfolio">Featured Works</a></li>
           <!-- <li><a href="#about">Our Team</a></li> -->
-          <li><a href="#contact">Login</a></li>
+          <li><a data-toggle="modal" data-target="#myModal" href="">Login</a></li>
         </ul>
       </div>
     </div>
   </nav>
 </div>
 <!--HEADER END-->
+<div class="modal fade" id="myModal" role="dialog" style="margin-top:20px">
+  <b><div id="snackbar"></div></b>
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content signIn" style="margin-top:300px">
+        <img src="../../assets/avatar.png" class="avatar">
+        <ul class="nav nav-tabs">
+            <li class="active col-lg-6" style="text-align:center;font-size:20px"><a data-toggle="tab" href="#home">Log In</a></li>
+            <li class="col-lg-6" style="text-align:center;font-size:20px"><a data-toggle="tab" href="#menu1">Register</a></li>
+        </ul>	
+        
+        <div class="tab-content">
+          <div id="home" class="tab-pane fade in active">
+                  <div class="" style="margin-top:40px;padding:0px 20px 0px 20px">
+                    <form (submit)="LoginEvent($event)">
+                      <div class="form-group">
+                        <label class="control-label" for="">Email address</label>
+                        <input type="email" class="form-control" aria-describedby="emailHelp" placeholder="Enter email" style="height: 40px;" required>
+                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                      </div>
+                      <div class="form-group">
+                        <label class="control-label" for="">Password</label>
+                        <input type="password" class="form-control" placeholder="Password" style="height: 40px;" required>
+                      </div>
+                      <button type="submit" class="btn btn-primary">Submit</button>
+                      <!-- <small class="form-text text-muted">Click <a data-toggle="tab" href="#menu1"> here</a> if not registered</small> -->
+                    </form>
+                    <hr>
+                    <div>
+                      <div style="color: #fff;font-size: 16px;font-weight:bold">OR SignIn With Google</div>
+                      <div style="font-size:20px">
+                        
+                        <google-signin
+                        [clientId]="myClientId"
+                        [width]="myWidth"
+                        [theme]="myTheme"
+                        [scope]="myScope"
+                        [longTitle]="myLongTitle"
+                        (googleSignInSuccess)="onGoogleSignInSuccess($event)">
+                        </google-signin>
+                          <!-- <div class="g-signin2" data-onsuccess="onSignIn" (click)="googleSign()" style="padding-top:10px;width:150%;"></div> -->
+                      </div>
+                    </div>
+                  </div>                            
+          </div>
 
+      
+
+          <div id="menu1" class="tab-pane fade">
+              <div class="" style="margin:20px">
+                  <form (submit)="RegisterEvent($event)">
+                    <div class="form-group">
+                        <label class="control-label">Name</label>
+                        <input type="text" class="form-control" aria-describedby="emailHelp" placeholder="Enter name">
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Email</label>
+                        <input type="email" class="form-control" aria-describedby="emailHelp" placeholder="Enter email">
+                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Address</label>
+                        <input type="text" class="form-control"  placeholder="Enter Address">                                    
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Mobile No </label>
+                        <input type="number" class="form-control"  placeholder="Enter Mobile No">                                 
+                    </div>
+                    <div class="form-group">
+                      <label class="control-label">Password</label>
+                      <input type="password" class="form-control" placeholder="Password">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Register</button>
+                  </form>
+                </div>        
+          </div>
+          
+        </div>
+    </div>
+  </div>
+</div>
 <!--BANNER START-->
 <div id="banner" class="section-padding">
     <br><br><br><br>
