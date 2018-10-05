@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 
 @Injectable()
-export class UpdateService {
+export class SelltransService {
 
-  constructor() {  }
+  constructor() { }
 
 }

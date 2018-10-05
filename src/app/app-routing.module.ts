@@ -20,6 +20,8 @@ import {BuytransComponent} from './homeboard/buytrans/buytrans.component';
 import {SelltransComponent} from './homeboard/selltrans/selltrans.component';
 import {SoldtransComponent} from './homeboard/soldtrans/soldtrans.component';
 import {UpdateComponent} from './homeboard/update/update.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 
 const routes: Routes = [
 
@@ -66,6 +68,14 @@ const routes: Routes = [
   {
     path: 'home/update',
     component:UpdateComponent
+  },
+  {
+    path: 'login',
+    component:LoginComponent
+  },
+  {
+    path: 'register',
+    component:RegisterComponent
   },
   // {
   //   path: 'allposts',

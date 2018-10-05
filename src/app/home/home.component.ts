@@ -30,9 +30,9 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     let k = "";
     
-    console.log(typeof this.cookieService.get('ENVuserID'));
-    console.log(this.cookieService.get('ENVuserID'));
-    if(this.cookieService.get('ENVuserID')!=k ){
+    console.log(typeof this.cookieService.get('iGSTCompID'));
+    console.log(this.cookieService.get('iGSTCompID'));
+    if(this.cookieService.get('iGSTCompToken')!=k ){
           // console.log("first routing "+this.cookieService.get('ENVuserID')+this.editedSignOut);
           this.editedSignIn=false;
           // this.editedSignOut=false;
@@ -60,7 +60,7 @@ export class HomeComponent implements OnInit {
     let password = event.target.elements[1].value;
     let data={
       "Email": username,
-      "password": password
+      "Password": password
     };
 
  
@@ -68,25 +68,16 @@ export class HomeComponent implements OnInit {
       .subscribe(
         (response) => {
         console.log(response);
-        this.cookieService.set( 'ENVuserID', response.userID );
-        this.cookieService.set('ENVtoken',response.token);
+        // this.cookieService.set( 'ENVuserID', response.userID );
+        // this.cookieService.set('ENVtoken',response.token);
 
-        this.cookieENVuserID = this.cookieService.get('ENVuserID');
-        this.cookieENVtoken = this.cookieService.get('ENVtoken');
-
-        console.log(this.cookieENVuserID,this.cookieENVtoken);
-        let x = document.getElementById("snackbar");
-        x.className = "show";
-        setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
-        document.getElementById("snackbar").innerHTML ="Login Successful !";
+        // this.cookieENVuserID = this.cookieService.get('ENVuserID');
+        // this.cookieENVtoken = this.cookieService.get('ENVtoken');
       
       },
       (err) =>{
         
-        let x = document.getElementById("snackbar");
-      x.className = "show";
-      setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
-      document.getElementById("snackbar").innerHTML ="Wrong username and password !";
+        console.log(err);
       },
       () => {console.log('done!');
 

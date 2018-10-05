@@ -8,7 +8,7 @@ import 'rxjs/add/observable/throw';
 
 @Injectable()
 export class HomeService {
-  private serverURL ='https://can-man-be-brave-when-afraid.herokuapp.com';
+  private serverURL ='https://can-man-be-brave-when-afraid.herokuapp.com/company/';
 
   constructor(private http:HttpClient) { }
 

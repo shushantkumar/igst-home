@@ -30,6 +30,9 @@ import { ProductsService } from './homeboard/products/products.service';
 import { BottransService } from './homeboard/bottrans/bottrans.service';
 import { SoldtransService } from './homeboard/soldtrans/soldtrans.service';
 import { HomeService } from './home/home.service';
+import { BuytransService } from './homeboard/buytrans/buytrans.service';
+import { SelltransService } from './homeboard/selltrans/selltrans.service';
+import { UpdateService } from './homeboard/update/update.service';
 
 import {HttpClientModule, HttpClient} from '@angular/common/http';
 import { HttpModule } from '@angular/http'; 
@@ -48,6 +51,9 @@ import { SelltransComponent } from './homeboard/selltrans/selltrans.component';
 import { SoldtransComponent } from './homeboard/soldtrans/soldtrans.component';
 import { BottransComponent } from './homeboard/bottrans/bottrans.component';
 import { UpdateComponent } from './homeboard/update/update.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { RegcompComponent } from './regcomp/regcomp.component';
 
 @NgModule({
   declarations: [
@@ -76,6 +82,9 @@ import { UpdateComponent } from './homeboard/update/update.component';
     SoldtransComponent,
     BottransComponent,
     UpdateComponent,
+    LoginComponent,
+    RegisterComponent,
+    RegcompComponent,
   ],
   imports: [
     BrowserModule,
@@ -96,7 +105,10 @@ import { UpdateComponent } from './homeboard/update/update.component';
     ProductsService,
     BottransService,
     SoldtransService,
-    HomeService
+    HomeService,
+    SelltransService,
+    UpdateService,
+    BuytransService
   ],
   bootstrap: [AppComponent]
 })
