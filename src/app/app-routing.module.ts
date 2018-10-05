@@ -22,6 +22,7 @@ import {SoldtransComponent} from './homeboard/soldtrans/soldtrans.component';
 import {UpdateComponent} from './homeboard/update/update.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { RegcompComponent } from './regcomp/regcomp.component';
 
 const routes: Routes = [
 
@@ -76,6 +77,10 @@ const routes: Routes = [
   {
     path: 'register',
     component:RegisterComponent
+  },
+  {
+    path: 'register/company',
+    component:RegcompComponent
   },
   // {
   //   path: 'allposts',
