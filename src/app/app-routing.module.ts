@@ -139,10 +139,10 @@ const routes: Routes = [
   //   path: 'signin',
   //   component: SignInComponent
   // },
-  // {
-  //   path: 'testry',
-  //   component: TestryComponent
-  // },
+  {
+    path: 'testry',
+    component: TestryComponent
+  },
 ];
 
 @NgModule({
