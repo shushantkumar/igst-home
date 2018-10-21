@@ -27,8 +27,9 @@ export class AllproductsComponent implements OnInit {
   }
   getAllProducts() {
     console.log("Something is going on!");
-    let data = this.cookieService.get("EMPCOMPID");
+    let data = this.cookieService.get("COMPuserID");
     // let data=3;
+    console.log(" klnklnslkn COMPANY fel");
     this.productsService.getAllProducts(data).subscribe(
       res => {
         console.log(res);
