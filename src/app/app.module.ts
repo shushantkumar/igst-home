@@ -33,6 +33,7 @@ import { HomeService } from './home/home.service';
 import { BuytransService } from './homeboard/buytrans/buytrans.service';
 import { SelltransService } from './homeboard/selltrans/selltrans.service';
 import { UpdateService } from './homeboard/update/update.service';
+import { RegserviceService } from './services/regservice.service';
 
 import {HttpClientModule, HttpClient} from '@angular/common/http';
 import { HttpModule } from '@angular/http'; 
@@ -54,6 +55,7 @@ import { UpdateComponent } from './homeboard/update/update.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { RegcompComponent } from './regcomp/regcomp.component';
+import { CompanyComponent } from './company/company.component';
 
 @NgModule({
   declarations: [
@@ -85,6 +87,7 @@ import { RegcompComponent } from './regcomp/regcomp.component';
     LoginComponent,
     RegisterComponent,
     RegcompComponent,
+    CompanyComponent,
   ],
   imports: [
     BrowserModule,
@@ -108,7 +111,8 @@ import { RegcompComponent } from './regcomp/regcomp.component';
     HomeService,
     SelltransService,
     UpdateService,
-    BuytransService
+    BuytransService,
+    RegserviceService
   ],
   bootstrap: [AppComponent]
 })
