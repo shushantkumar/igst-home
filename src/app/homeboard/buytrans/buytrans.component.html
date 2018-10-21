@@ -52,85 +52,71 @@
                     <input id="search" class="form-control" type="text" placeholder="Search by any field..." [(ngModel)]="search" required>   
                 </div>
         </div>
-    <div class="container-fluid">
-        <div class="col-lg-6" style="margin-left:-100px">
-                        <div class="container-table100">
-                          <div class="wrap-table100">
-                            <p>Todays Cases</p>
-                            <div class="table100 ver1 m-b-110">
-                              <div class="table100-head">
-                                <table>
-                                  <thead>
-                                    <tr class="row100 head">
-                                      <th class="cell100 column1">Class name</th>
-                                      <th class="cell100 column2">Type</th>
-                                      <th class="cell100 column3">Hours</th>
-                                      <th class="cell100 column4">Trainer</th>
-                                      <th class="cell100 column5">Spots</th>
-                                    </tr>
-                                  </thead>
-                                </table>
-                              </div>
-                    
-                              <div class="table100-body js-pscroll">
-                                <table>
-                                  <tbody>
-                                    <tr class="row100 body">
-                                      <td class="cell100 column1">Like a butterfly</td>
-                                      <td class="cell100 column2">Boxing</td>
-                                      <td class="cell100 column3">9:00 AM - 11:00 AM</td>
-                                      <td class="cell100 column4">Aaron Chapman</td>
-                                      <td class="cell100 column5">10</td>
-                                    </tr>
-                                  </tbody>
-                                </table>
-                              </div>
-                            </div>
-                    
-                    
-                          </div>
-                        </div>
-            
+        <div class="row">
+          <div class="col-lg-6">
+              <table class="table table-striped table-bordered">
+                  <thead>
+                      <tr>
+                          <th>Product Code</th>
+                          <th>Quantity</th>
+                          <th>Cost</th>
+                          <!-- <th>Action</th> -->
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <tr *ngFor="let field of fieldArray; let i = index">
+                          <td>
+                              <input [(ngModel)]="field.medicineName" class="form-control" type="text" name="{{field.medicineName}}" />
+                          </td>
+                          <td>
+                              <input [(ngModel)]="field.duration" class="form-control" type="text" name="{{field.duration}}" />
+                          </td>
+                          <td>
+                              <input [(ngModel)]="field.dosage" class="form-control" type="text" name="{{field.dosage}}" />
+                          </td>
+                      </tr>
+
+                  </tbody>
+          </table>
+          </div>
+          <div class="col-lg-6">
+              <table class="table table-hover">
+                  <thead>
+                      <tr>
+                          <!-- <th>#</th> -->
+                          <!-- <th></th> -->
+                          <th>Product Code</th>
+                          <th>Product Name</th>
+                          <th>Cost Price (₹)</th>
+                          <!-- <th>GST Rate (%)</th> -->
+                          <th>Quantity</th>
+                          <th>Actions</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <tr *ngFor="let meta of productsdata | filter:search">
+                          <!-- <th scope="row">1</th> -->
+                          <!-- <td>
+                              <fieldset class="form-group">
+                                  <input type="checkbox" id="checkbox1">
+                                  <label for="checkbox1"></label>
+                              </fieldset>
+                          </td> -->
+                          <td>{{meta.Product_Code}}</td>
+                          <td>{{meta.Product_Name}}</td>
+                          <td>{{meta.Cost_Price}}</td>
+                          <!-- <td>{{meta.GST_Rate}}</td> -->
+                          <td>{{meta.Quantity}}</td>
+                          <td>
+                              <button type="button" class="btn btn-primary"  data-toggle="modal" data-target="#updateRequestItem" (click)="addFieldValue(meta)"><i class="far fa-edit" style="margin-right: 5px"></i>+</button>
+                              <!-- <button type="button" class="btn btn-danger"><i class="fa fa-trash-alt"style="margin-right: 5px"></i>Delete</button> -->
+                          </td>
+                      </tr>
+              
+                  </tbody>
+          </table>
+          </div>
         </div>
-        <div class="col-lg-6">
-                <div class="container-table100">
-                        <div class="wrap-table100">
-                          <p>Todays Cases</p>
-                          <div class="table100 ver1 m-b-110">
-                            <div class="table100-head">
-                              <table>
-                                <thead>
-                                  <tr class="row100 head">
-                                    <th class="cell100 column1">Class name</th>
-                                    <th class="cell100 column2">Type</th>
-                                    <th class="cell100 column3">Hours</th>
-                                    <th class="cell100 column4">Trainer</th>
-                                    <th class="cell100 column5">Spots</th>
-                                  </tr>
-                                </thead>
-                              </table>
-                            </div>
-                  
-                            <div class="table100-body js-pscroll">
-                              <table>
-                                <tbody>
-                                  <tr class="row100 body">
-                                    <td class="cell100 column1">Like a butterfly</td>
-                                    <td class="cell100 column2">Boxing</td>
-                                    <td class="cell100 column3">9:00 AM - 11:00 AM</td>
-                                    <td class="cell100 column4">Aaron Chapman</td>
-                                    <td class="cell100 column5">10</td>
-                                  </tr>
-                                </tbody>
-                              </table>
-                            </div>
-                          </div>
-                  
-                  
-                        </div>
-                      </div>
-        </div>
-    </div>
   </div>
 </div>
 
