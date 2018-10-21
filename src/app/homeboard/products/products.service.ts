@@ -33,8 +33,9 @@ export class ProductsService {
   }
 
   
-  getAllProducts(){
-    let specificUrl = this.serverURL + '/products/';
+  getAllProducts(data){
+    let specificUrl = this.serverURL + '/products/' + data + '/';
+    console.log(specificUrl);
     return this.http.get(specificUrl)
     .map(this.extractData)
     .catch(this.handleError);
