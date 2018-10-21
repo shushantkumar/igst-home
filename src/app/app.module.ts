@@ -15,9 +15,9 @@ import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './dashboard/about/about.component';
 import { PostComponent } from './dashboard/post/post.component';
 import { RequestComponent } from './dashboard/request/request.component';
-import {MatSidenavModule} from '@angular/material/sidenav';
 import { AllpostsComponent } from './allposts/allposts.component';
 import { AllrequestsComponent } from './allrequests/allrequests.component';
+import { CompanyserService } from './company/companyser.service';
 
 import { AllpostsService } from './allposts/allposts.service';
 import { AllrequestsService } from './allrequests/allrequests.service';
@@ -56,6 +56,10 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { RegcompComponent } from './regcomp/regcomp.component';
 import { CompanyComponent } from './company/company.component';
+import { AllproductsComponent } from './company/allproducts/allproducts.component';
+import { AllimportComponent } from './company/allimport/allimport.component';
+import { AllexportComponent } from './company/allexport/allexport.component';
+import { CompupdateComponent } from './company/compupdate/compupdate.component';
 
 @NgModule({
   declarations: [
@@ -88,6 +92,10 @@ import { CompanyComponent } from './company/company.component';
     RegisterComponent,
     RegcompComponent,
     CompanyComponent,
+    AllproductsComponent,
+    AllimportComponent,
+    AllexportComponent,
+    CompupdateComponent,
   ],
   imports: [
     BrowserModule,
@@ -112,7 +120,8 @@ import { CompanyComponent } from './company/company.component';
     SelltransService,
     UpdateService,
     BuytransService,
-    RegserviceService
+    RegserviceService,
+    CompanyserService
   ],
   bootstrap: [AppComponent]
 })

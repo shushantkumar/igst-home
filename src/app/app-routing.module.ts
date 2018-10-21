@@ -23,6 +23,11 @@ import {UpdateComponent} from './homeboard/update/update.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { RegcompComponent } from './regcomp/regcomp.component';
+import { CompanyComponent } from './company/company.component';
+import { AllexportComponent } from './company/allexport/allexport.component';
+import { AllimportComponent } from './company/allimport/allimport.component';
+import { AllproductsComponent } from './company/allproducts/allproducts.component';
+import { CompupdateComponent } from './company/compupdate/compupdate.component';
 
 const routes: Routes = [
 
@@ -81,6 +86,26 @@ const routes: Routes = [
   {
     path: 'register/company',
     component:RegcompComponent
+  },
+  {
+    path: 'company',
+    component:CompanyComponent
+  },
+  {
+    path: 'company/update',
+    component:CompupdateComponent
+  },
+  {
+    path: 'company/products',
+    component:AllproductsComponent
+  },
+  {
+    path: 'company/imports',
+    component:AllimportComponent
+  },
+  {
+    path: 'company/exports',
+    component:AllexportComponent
   },
   // {
   //   path: 'allposts',
