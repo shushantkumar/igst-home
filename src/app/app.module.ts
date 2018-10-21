@@ -34,6 +34,7 @@ import { BuytransService } from './homeboard/buytrans/buytrans.service';
 import { SelltransService } from './homeboard/selltrans/selltrans.service';
 import { UpdateService } from './homeboard/update/update.service';
 import { RegserviceService } from './services/regservice.service';
+import { CompanyallService } from './company/companyall.service';
 
 import {HttpClientModule, HttpClient} from '@angular/common/http';
 import { HttpModule } from '@angular/http'; 
@@ -121,7 +122,8 @@ import { CompupdateComponent } from './company/compupdate/compupdate.component';
     UpdateService,
     BuytransService,
     RegserviceService,
-    CompanyserService
+    CompanyserService,
+    CompanyallService
   ],
   bootstrap: [AppComponent]
 })

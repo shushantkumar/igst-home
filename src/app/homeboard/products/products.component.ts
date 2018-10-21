@@ -5,7 +5,7 @@ import { HttpModule } from '@angular/http';
 import { HttpClientModule,HttpClient } from '@angular/common/http';
 import {Observable} from 'rxjs/Rx';
 import { ProductsService } from './products.service';
-// import { CookieService } from 'ngx-cookie-service';
+import { CookieService } from 'ngx-cookie-service';
 import {Http,Response,RequestOptions,Headers} from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -17,13 +17,16 @@ import { BrowserModule } from '@angular/platform-browser';
 })
 export class ProductsComponent implements OnInit {
   productsdata;
-  constructor(private productsService:ProductsService) { }
+  constructor(
+    private productsService:ProductsService
+    ) { }
 
   ngOnInit() {
     this.getAllProducts();
   }
   getAllProducts(){
     console.log("Something is going on!");
+
     this.productsService.getAllProducts().subscribe(
       (res) =>{
           console.log(res);

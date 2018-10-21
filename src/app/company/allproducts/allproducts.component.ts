@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CompanyallService } from '../companyall.service';
 
 @Component({
   selector: 'app-allproducts',
