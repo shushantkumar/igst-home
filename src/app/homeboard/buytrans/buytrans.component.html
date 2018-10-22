@@ -66,13 +66,13 @@
                   <tbody>
                       <tr *ngFor="let field of fieldArray; let i = index">
                           <td>
-                              <input [(ngModel)]="field.medicineName" class="form-control" type="text" name="{{field.medicineName}}" />
+                              <input [(ngModel)]="field.code" class="form-control" type="text" name="{{field.code}}" />
                           </td>
                           <td>
-                              <input [(ngModel)]="field.duration" class="form-control" type="text" name="{{field.duration}}" />
+                              <input [(ngModel)]="field.quantity" class="form-control" type="text" name="{{field.quantity}}" />
                           </td>
                           <td>
-                              <input [(ngModel)]="field.dosage" class="form-control" type="text" name="{{field.dosage}}" />
+                              <input [(ngModel)]="field.cost" class="form-control" type="text" name="{{field.cost}}" />
                           </td>
                       </tr>
 
@@ -89,7 +89,7 @@
                           <th>Product Name</th>
                           <th>Cost Price (₹)</th>
                           <!-- <th>GST Rate (%)</th> -->
-                          <th>Quantity</th>
+                          <th>Remaining Quantity</th>
                           <th>Actions</th>
                       </tr>
                   </thead>
@@ -108,7 +108,7 @@
                           <!-- <td>{{meta.GST_Rate}}</td> -->
                           <td>{{meta.Quantity}}</td>
                           <td>
-                              <button type="button" class="btn btn-primary"  data-toggle="modal" data-target="#updateRequestItem" (click)="addFieldValue(meta)"><i class="far fa-edit" style="margin-right: 5px"></i>+</button>
+                              <button type="button" class="btn btn-danger"  data-toggle="modal" data-target="#updateRequestItem" (click)="addFieldValue(meta)" style="font-size:20px">+</button>
                               <!-- <button type="button" class="btn btn-danger"><i class="fa fa-trash-alt"style="margin-right: 5px"></i>Delete</button> -->
                           </td>
                       </tr>
