@@ -56,4 +56,21 @@ export class ProductsService {
     .map(this.extractData)
     .catch(this.handleError);
   }
+
+  getEmpDetails(data){
+    let specificUrl = this.serverURL + '/employee/' +data;
+    console.log(specificUrl);
+    return this.http.get(specificUrl)
+    .map(this.extractData)
+    .catch(this.handleError);
+  }
+
+  UpdateEmployee(data,path){
+    let specificUrl = this.serverURL + '/employee/' +path;
+    let headers =  {headers: new  HttpHeaders({ 'Content-Type': 'application/json'})};
+    console.log(specificUrl);
+    return this.http.patch(specificUrl,data,headers)
+    .map(this.extractData)
+    .catch(this.handleError);
+  }
 }

@@ -43,6 +43,39 @@
 
     </div>
   </div>
+  <div class="col-lg-9">
+        <div class="container-fluid">
+                <div class="row" style="padding: 20px">
+                    <div class="col-lg-1">
+                        <i class="fas fa-search" style="font-size:25px;padding-right:-60px"></i>
+                    </div>
+                    <div class="col-lg-9">
+                        <input id="search" class="form-control" type="text" placeholder="Search by any field..." [(ngModel)]="search" required>   
+                    </div>
+                </div>
+                <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>DOT</th>
+                                <th>Transaction ID</th>
+                                <th>From Company</th>
+                                <th>Total Cost</th>
+                                
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let meta of productsdata | filter:search">
+                                    <td>{{meta.DOT}}</td>
+                                <td>{{meta.Transaction_ID}}</td>
+                                <td>{{meta.FromCompany}}</td>
+                                <td>{{meta.TotalCost}}</td>
+                                
+                            </tr>
+                    
+                        </tbody>
+                </table>
+        </div>
+    </div>
 </div>
 
 ​

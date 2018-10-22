@@ -34,8 +34,8 @@ export class BottransService {
     return Observable.throw(errMsg);
   }
 
-  getBuyTrans(){
-    let specificUrl = this.serverURL + '/';
+  getBuyTrans(data1,data2){
+    let specificUrl = this.serverURL + '/btransact/' + data2 + '/' + data1 + '/';
     return this.http.get(specificUrl)
     .map(this.extractData)
     .catch(this.handleError);

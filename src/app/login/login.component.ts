@@ -34,7 +34,7 @@ export class LoginComponent implements OnInit {
       console.log(response);      
       this.cookieService.set( 'COMPuserID', response.Company_ID );
       console.log(this.cookieService.get("COMPuserID"));
-      this.router.navigate(['home']);
+      this.router.navigate(['company']);
     
     },
     (err) =>{

@@ -71,4 +71,37 @@ export class RegserviceService {
     .map(this.extractData)
     .catch(this.handleError);
   }
+
+
+  UpdateCompany(data,path){
+    let specificUrl = this.serverURL + '/company/' +path;
+    let headers =  {headers: new  HttpHeaders({ 'Content-Type': 'application/json'})};
+    console.log(specificUrl);
+    return this.http.patch(specificUrl,data,headers)
+    .map(this.extractData)
+    .catch(this.handleError);
+  }
+
+  getComDetails(data){
+    let specificUrl = this.serverURL + '/company/' +data;
+    console.log(specificUrl);
+    return this.http.get(specificUrl)
+    .map(this.extractData)
+    .catch(this.handleError);
+  }
+
+
+  getSoldTrans(data1){
+    let specificUrl = this.serverURL + '/stransact/' + data1 + '/';
+    return this.http.get(specificUrl)
+    .map(this.extractData)
+    .catch(this.handleError);
+  }
+
+  getBuyTrans(data){
+    let specificUrl = this.serverURL + '/btransact/' + data + '/';
+    return this.http.get(specificUrl)
+    .map(this.extractData)
+    .catch(this.handleError);
+  }
 }

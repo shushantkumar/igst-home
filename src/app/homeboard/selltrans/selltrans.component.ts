@@ -108,6 +108,16 @@ getGrossTotal(){
   return sum.toFixed(2);
 }
 
+
+getNetProfitLoss(){
+  let sum=0;
+  for(let i = 0; i < this.fieldArray.length; i++) {
+    // let temp=this.fieldArray[i];
+    sum += this.fieldArray[i].cost*this.fieldArray[i].quantity-this.fieldArray[i].actprice*this.fieldArray[i].quantity;
+  }
+  return sum.toFixed(2);
+}
+
 printconsole(){
   // console.log(this.fieldArray);
   let varna = [];
@@ -167,6 +177,7 @@ SellTransaction(event){
   // console.log(this.FromCompany);
   // console.log(this.TotalCost);
   let temp = this.printconsole();
+  let prolos = this.getNetProfitLoss();
   if(temp==0){ alert ("Order quantity cannot be greater than remaining quantity!"); }
   else {
     let data = {
@@ -177,7 +188,8 @@ SellTransaction(event){
         "TotalCost":this.TotalCost,
         "DOT":this.DOT,
         "Comp_ID":this.Comp_ID,
-        "Emp_ID":this.Emp_ID
+        "Emp_ID":this.Emp_ID,
+        "Profit_Loss":prolos
       },
       "Quantity": this.printconsole()
     }
