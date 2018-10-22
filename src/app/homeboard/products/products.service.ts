@@ -40,4 +40,20 @@ export class ProductsService {
     .map(this.extractData)
     .catch(this.handleError);
   }
+
+  getnextBuyTran(){
+    let specificUrl = this.serverURL + '/btransact/tmax';
+    console.log(specificUrl);
+    return this.http.get(specificUrl)
+    .map(this.extractData)
+    .catch(this.handleError);
+  }
+
+  getnextSellTran(){
+    let specificUrl = this.serverURL + '/stransact/tmax';
+    console.log(specificUrl);
+    return this.http.get(specificUrl)
+    .map(this.extractData)
+    .catch(this.handleError);
+  }
 }

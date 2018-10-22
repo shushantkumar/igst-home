@@ -36,7 +36,7 @@
                   </ul>
               </li>
               <li>
-                  <a href="home/update"><i class="fa fa-edit" style="margin: 0px 12px 0px 10px"></i> Edit Company Details  </a>
+                  <a href="home/update"><i class="fa fa-edit" style="margin: 0px 12px 0px 10px"></i> Edit Employee Details  </a>
               </li>
           </ul>
       </nav>
@@ -44,23 +44,31 @@
     </div>
   </div>
   <div class="col-lg-9">
-        <div class="row" style="padding: 20px">
-                <div class="col-lg-1">
-                    <i class="fas fa-search" style="font-size:25px;padding-right:-60px"></i>
-                </div>
-                <div class="col-lg-9">
-                    <input id="search" class="form-control" type="text" placeholder="Search by any field..." [(ngModel)]="search" required>   
-                </div>
-        </div>
+
         <div class="row">
-          <div class="col-lg-6">
-              <table class="table table-striped table-bordered">
+          <div class="col-lg-8">
+                <form class="form-inline" (submit)="SellTransaction($event)" style="padding-bottom:20px">
+                    <div class="form-group">
+                        
+                      <input type="text" value="Date:         {{DOT}}" class="form-control" disabled>
+                    </div>
+                    <div class="form-group" style="padding-left:10px">
+                      <label for="pwd">To Company Name:</label>
+                      <input type="text" class="form-control" id="pwd">
+                    </div>
+                    <button type="submit" class="btn btn-warning">Sell</button>
+                </form>
+                <b>Add the products below</b>
+                <table class="table table-striped table-bordered" style="margin-top:20px">
+                        
                   <thead>
                       <tr>
                             <th>Product ID</th>
-                          <th>Product Code</th>
+
                           <th>Quantity</th>
-                          <th>Cost</th>
+                          <th>Cost Per Item (₹)</th>
+                          <th>Loss/Gain (₹)</th>
+                          <th>Net Cost (₹)</th>
                           <!-- <th>Action</th> -->
                       </tr>
                   </thead>
@@ -69,22 +77,42 @@
                             <td>
                                 <input [(ngModel)]="field.id" class="form-control" type="number" disabled/>
                             </td>
-                          <td>
-                              <input [(ngModel)]="field.code" class="form-control" type="text" disabled/>
-                          </td>
+
                           <td>
                               <input [(ngModel)]="field.quantity" class="form-control" type="number"  />
                           </td>
                           <td>
-                              <input [(ngModel)]="field.cost*field.quantity*field.gst" class="form-control" type="number" disabled/>
+                              <input [(ngModel)]="field.cost" class="form-control" type="number"/>
+                          </td>
+                          <td>
+                            <input [(ngModel)]="field.cost*field.quantity-field.actprice*field.quantity" class="form-control" type="number" disabled/>
+                          </td>
+                          <td>
+                            <input [(ngModel)]="field.cost*field.quantity" class="form-control" type="text" disabled/>
                           </td>
                       </tr>
 
                   </tbody>
-          </table>
+                  <tfoot>
+                      <td></td>
+                      <td>
+                            <button type="button" class="btn btn-primary" (click)="printconsole()" style="font-size:20px">-></button>
+                      </td>
+                      <td></td>
+                      <td>Gross Total (₹):</td>
+                      <td>{{getGrossTotal()}}</td>
+                  </tfoot>
+                </table>
           </div>
-          <div class="col-lg-6">
-              <table class="table table-hover">
+          <div class="col-lg-4">
+                <div class="col-lg-1">
+                        <i class="fas fa-search" style="font-size:25px;padding-right:-60px"></i>
+                    </div>
+                    <div class="col-lg-10">
+                        <input id="search" class="form-control" type="text" placeholder="Search by any field..." [(ngModel)]="search" required>   
+                    </div>
+                <table class="table table-hover">
+                    
                   <thead>
                       <tr>
                           <!-- <th>#</th> -->
@@ -94,7 +122,7 @@
                           <th>Cost Price (₹)</th>
                           <!-- <th>GST Rate (%)</th> -->
                           <th>Remaining Quantity</th>
-                          <th>Actions</th>
+                          <th></th>
                       </tr>
                   </thead>
                   <tbody>
@@ -111,14 +139,14 @@
                           <td>{{meta.Cost_Price}}</td>
                           <!-- <td>{{meta.GST_Rate}}</td> -->
                           <td>{{meta.Quantity}}</td>
-                          <td>
-                              <button type="button" class="btn btn-danger"  data-toggle="modal" data-target="#updateRequestItem" (click)="addFieldValue(meta)" style="font-size:20px">+</button>
+                          <td id="{{meta.Product_ID}}">
+                              <button type="button" class="btn btn-danger"  (click)="addFieldValue(meta)" style="font-size:20px">+</button>
                               <!-- <button type="button" class="btn btn-danger"><i class="fa fa-trash-alt"style="margin-right: 5px"></i>Delete</button> -->
                           </td>
                       </tr>
               
                   </tbody>
-          </table>
+                </table>
           </div>
         </div>
   </div>

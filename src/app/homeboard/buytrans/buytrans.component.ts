@@ -8,6 +8,7 @@ import { ProductsService } from "../products/products.service";
 import { CookieService } from "ngx-cookie-service";
 import { Http, Response, RequestOptions, Headers } from "@angular/http";
 import { BrowserModule } from "@angular/platform-browser";
+import { BuytransService } from './buytrans.service';
 
 @Component({
   selector: 'app-buytrans',
@@ -30,20 +31,33 @@ export class BuytransComponent implements OnInit {
   productsdata;
   constructor(
     private productsService: ProductsService,
-    private cookieService: CookieService
+    private cookieService: CookieService,
+    private buytransService: BuytransService,
+    private router: Router
   ) {}
 
   ngOnInit() {
     this.getAllProducts();
+    this.getnextBuyTran();
     var currentDate = new Date();
 
     var date = currentDate.getDate();
     var month = currentDate.getMonth(); //Be careful! January is 0 not 1
     var year = currentDate.getFullYear();
-    
-    var dateString = date + "-" +(month + 1) + "-" + year;
+    // var h = this.addZero(currentDate.getHours());
+    // var m = this.addZero(currentDate.getMinutes());
+    // var s = this.addZero(currentDate.getSeconds());
+
+    var dateString = year+ "-" +(month + 1)+ "-" +date ;
     this.DOT = dateString;
     console.log(this.DOT);
+  }
+
+  addZero(i) {
+    if (i < 10) {
+        i = "0" + i;
+    }
+    return i;
   }
 
   getAllProducts() {
@@ -75,6 +89,22 @@ export class BuytransComponent implements OnInit {
     
 }
 
+getnextBuyTran(){
+  this.productsService.getnextBuyTran()
+  .subscribe(
+    (response) => {
+    console.log(response);
+
+    this.Transaction_ID = response.Transaction_ID + 1;
+  
+  },
+  (err) =>{
+  },
+  () => {console.log('done!');
+  // this.router.navigate(['home']);
+}
+);
+}
 
 getGrossTotal(){
   let sum=0;
@@ -106,9 +136,23 @@ BuyTransaction(event){
   this.Emp_ID=this.cookieService.get( 'EMPuserID' );
   // this.cookieService.get( 'EMPtoken' );
   this.Comp_ID=this.cookieService.get( 'EMPCOMPID' );
-  this.DOT = Date();
+
+  //date calc
+  var currentDate = new Date();
+
+  var date = currentDate.getDate();
+  var month = currentDate.getMonth(); //Be careful! January is 0 not 1
+  var year = currentDate.getFullYear();
+  var h = this.addZero(currentDate.getHours());
+  var m = this.addZero(currentDate.getMinutes());
+  var s = this.addZero(currentDate.getSeconds());
+
+  var dateString = year+ "-" +(month + 1)+ "-" +date + " " +  h + ":" + m + ":" + s;
+  this.DOT = dateString;
+
   this.FromCompany = event.target.elements[1].value;
   this.TotalCost = this.getGrossTotal();
+  this.ToCompany = this.cookieService.get('EMPCOMPName');
   console.log("Starting here");
   // console.log(this.Emp_ID);
   // console.log(this.Comp_ID);
@@ -117,8 +161,8 @@ BuyTransaction(event){
   // console.log(this.TotalCost);
   let data = {
     "BUYTRAN":{
-      "Transaction_ID":"7891",
-      "ToCompany":"ABC123",
+      "Transaction_ID":this.Transaction_ID,
+      "ToCompany":this.ToCompany,
       "FromCompany":this.FromCompany,
       "TotalCost":this.TotalCost,
       "DOT":this.DOT,
@@ -128,6 +172,24 @@ BuyTransaction(event){
     "Quantity": this.printconsole()
    }
   console.log(data);
+
+  this.buytransService.BuyTransaction(data)
+.subscribe(
+  (response) => {
+  console.log(response);
+
+  
+
+},
+(err) =>{
+},
+() => {console.log('done!');
+this.router.navigate(['home']);
 }
+);
+}
+
+
+
 
 }

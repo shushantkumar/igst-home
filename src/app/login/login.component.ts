@@ -60,6 +60,7 @@ export class LoginComponent implements OnInit {
       this.cookieService.set( 'EMPuserID', response.Employee_ID );
       this.cookieService.set( 'EMPtoken', response.token );
       this.cookieService.set( 'EMPCOMPID', response.Comp_ID );
+      this.cookieService.set('EMPCOMPName',response.Company_Name);
       this.router.navigate(['home']);
     
     },
