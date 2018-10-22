@@ -17,9 +17,11 @@ import { BrowserModule } from "@angular/platform-browser";
 })
 export class AllproductsComponent implements OnInit {
   productsdata;
+  particular;
   constructor(
     private productsService: CompanyallService,
-    private cookieService: CookieService
+    private cookieService: CookieService,
+    private router:Router
   ) {}
 
   ngOnInit() {
@@ -39,5 +41,38 @@ export class AllproductsComponent implements OnInit {
       err => console.log(err),
       () => console.log("done!")
     );
+  }
+
+  updateRequest(meta){
+    console.log("ghgh");
+    console.log(meta);
+    this.particular = meta;
+  }
+
+  updateRequestItem(){
+    let data = {
+      "Product_ID": this.particular.Product_ID,
+      "Product_Code":this.particular.Product_Code,
+      "Product_Name":this.particular.Product_Name,
+      "Cost_Price":this.particular.Cost_Price,
+      "GST_Rate":this.particular.GST_Rate,
+      "Quantity":this.particular.Quantity,
+      "Comp_ID": this.cookieService.get( 'COMPuserID' )
+  }
+  console.log(data);
+
+  // let x = this.cookieService.get( 'COMPuserID' );
+  // console.log(data);
+  // this.productsService.UpdateProduct(data,x).subscribe(
+  //   res => {
+  //     console.log(res);
+  //     // let response = res.table[0];
+  //     // this.varu = response;
+  //   },
+  //   err => console.log(err),
+  //   () => {console.log("done!");
+  //   // this.router.navigate(['company']);
+  // }
+  // );
   }
 }

@@ -42,4 +42,12 @@ export class CompanyallService {
     .catch(this.handleError);
   }
 
+  UpdateProduct(data,x){
+    let specificUrl = this.serverURL + '/products/' +x + '/' + data.Product_ID + '/';
+    let headers =  {headers: new  HttpHeaders({ 'Content-Type': 'application/json'})};
+    console.log(specificUrl);
+    return this.http.patch(specificUrl,data,headers)
+    .map(this.extractData)
+    .catch(this.handleError);
+  }
 }
