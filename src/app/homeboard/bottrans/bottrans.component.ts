@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CookieService } from "ngx-cookie-service";
 import { BottransService } from './bottrans.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-bottrans',
@@ -11,7 +12,8 @@ export class BottransComponent implements OnInit {
   productsdata;
   constructor(
     private cookieService: CookieService,
-    private bottransService:BottransService
+    private bottransService:BottransService,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -31,5 +33,14 @@ export class BottransComponent implements OnInit {
       () => console.log("done!")
     );
   }
+
+  LogoutEvent(){
+    this.cookieService.set('EMPuserID',"");
+    this.cookieService.set('EMPCOMPID',"");
+    this.cookieService.set('EMPCOMPName',"");
+    this.cookieService.set('EMPtoken',"");
+    this.router.navigate(['login']);
+    
+    }
 
 }

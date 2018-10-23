@@ -18,7 +18,8 @@ export class ProductsComponent implements OnInit {
   productsdata;
   constructor(
     private productsService: ProductsService,
-    private cookieService: CookieService
+    private cookieService: CookieService,
+    private router:Router
   ) {}
 
   ngOnInit() {
@@ -41,4 +42,12 @@ export class ProductsComponent implements OnInit {
 
 
   
+  LogoutEvent(){
+    this.cookieService.set('EMPuserID',"");
+    this.cookieService.set('EMPCOMPID',"");
+    this.cookieService.set('EMPCOMPName',"");
+    this.cookieService.set('EMPtoken',"");
+    this.router.navigate(['login']);
+    
+    }
 }

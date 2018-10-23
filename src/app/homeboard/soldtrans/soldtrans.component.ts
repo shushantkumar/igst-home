@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { SoldtransService } from './soldtrans.service';
 import { CookieService } from "ngx-cookie-service";
+import { Router } from "@angular/router";
+
 
 @Component({
   selector: 'app-soldtrans',
@@ -12,7 +14,8 @@ export class SoldtransComponent implements OnInit {
   productsdata;
   constructor(
     private cookieService: CookieService,
-    private soldtransService:SoldtransService
+    private soldtransService:SoldtransService,
+    private router:Router
   ) { }
 
   ngOnInit() {
@@ -32,4 +35,14 @@ export class SoldtransComponent implements OnInit {
     );
   }
 
+
+  
+  LogoutEvent(){
+    this.cookieService.set('EMPuserID',"");
+    this.cookieService.set('EMPCOMPID',"");
+    this.cookieService.set('EMPCOMPName',"");
+    this.cookieService.set('EMPtoken',"");
+    this.router.navigate(['login']);
+    
+    }
 }

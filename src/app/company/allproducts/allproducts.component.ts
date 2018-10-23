@@ -26,6 +26,9 @@ export class AllproductsComponent implements OnInit {
 
   ngOnInit() {
     this.getAllProducts();
+    if(this.cookieService.get('COMPuserID')=="" ){
+      this.router.navigate(['login']);
+}
   }
   getAllProducts() {
     console.log("Something is going on!");
@@ -49,30 +52,88 @@ export class AllproductsComponent implements OnInit {
     this.particular = meta;
   }
 
-  updateRequestItem(){
+  LogoutEvent(){
+    this.cookieService.set('COMPuserID',"")
+    this.router.navigate(['login']);
+    
+    }
+
+  updateRequestItem(event){
+    // console.log(event.target.elements[0].value);
+    // console.log(event.target.elements[1].value);
     let data = {
       "Product_ID": this.particular.Product_ID,
-      "Product_Code":this.particular.Product_Code,
-      "Product_Name":this.particular.Product_Name,
-      "Cost_Price":this.particular.Cost_Price,
-      "GST_Rate":this.particular.GST_Rate,
-      "Quantity":this.particular.Quantity,
+      "Product_Code":event.target.elements[0].value,
+      "Product_Name":event.target.elements[1].value,
+      "Cost_Price":event.target.elements[2].value,
+      "GST_Rate":event.target.elements[3].value,
+      "Quantity":event.target.elements[4].value,
       "Comp_ID": this.cookieService.get( 'COMPuserID' )
   }
   console.log(data);
 
-  // let x = this.cookieService.get( 'COMPuserID' );
+  let x = this.cookieService.get( 'COMPuserID' );
   // console.log(data);
-  // this.productsService.UpdateProduct(data,x).subscribe(
-  //   res => {
-  //     console.log(res);
-  //     // let response = res.table[0];
-  //     // this.varu = response;
-  //   },
-  //   err => console.log(err),
-  //   () => {console.log("done!");
-  //   // this.router.navigate(['company']);
-  // }
-  // );
+  this.productsService.UpdateProduct(data,x).subscribe(
+    res => {
+      console.log(res);
+      // let response = res.table[0];
+      // this.varu = response;
+      this.router.navigate(['company']);
+    },
+    err => console.log(err),
+    () => {console.log("done!");
+    
   }
+  );
+  }
+
+  AddProduct(event){
+    console.log(event.target.elements[0].value);
+    console.log(event.target.elements[1].value);
+    console.log(event.target.elements[2].value);
+    console.log(event.target.elements[3].value);
+
+    let data ={
+      "Product_Code": event.target.elements[0].value,
+      "Product_Name": event.target.elements[1].value,
+      "Cost_Price": event.target.elements[2].value,
+      "GST_Rate": event.target.elements[3].value,
+      "Quantity": 0,
+      "Comp_ID": this.cookieService.get( 'COMPuserID' )
+    }
+    console.log(data);
+    this.productsService.AddProduct(data).subscribe(
+      res => {
+        console.log(res);
+        // let response = res.table[0];
+        // this.varu = response;
+        this.router.navigate(['company/products']);
+      },
+      err => console.log(err),
+      () => {console.log("done!");
+      
+    }
+    );
+  }
+
+
+  deleteProduct(meta){
+    let compid = this.cookieService.get( 'COMPuserID' );
+    let prodid = meta.Product_ID;
+    
+    this.productsService.deleteProduct(compid,prodid).subscribe(
+      res => {
+        console.log(res);
+        // let response = res.table[0];
+        // this.varu = response;
+        // this.router.navigate(['company/products']);
+      },
+      err => console.log(err),
+      () => {console.log("product deleted!");
+      
+    }
+    );
+  }
+
 }

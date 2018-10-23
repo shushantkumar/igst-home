@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CookieService } from "ngx-cookie-service";
 import { RegserviceService } from '../../services/regservice.service';
+import { Router } from "@angular/router";
+
 @Component({
   selector: 'app-allexport',
   templateUrl: './allexport.component.html',
@@ -10,11 +12,15 @@ export class AllexportComponent implements OnInit {
   productsdata;
   constructor(
     private cookieService: CookieService,
-    private soldtransService:RegserviceService
+    private soldtransService:RegserviceService,
+    private router:Router
   ) { }
 
   ngOnInit() {
     this.getSoldTrans();
+    if(this.cookieService.get('COMPuserID')=="" ){
+      this.router.navigate(['login']);
+}
   }
   getSoldTrans(){
     // let Emp_ID=this.cookieService.get( 'EMPuserID' );
@@ -30,4 +36,9 @@ export class AllexportComponent implements OnInit {
     );
   }
 
+  LogoutEvent(){
+  this.cookieService.set('COMPuserID',"")
+  this.router.navigate(['login']);
+  
+  }
 }

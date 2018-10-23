@@ -215,5 +215,14 @@ SellTransaction(event){
 }
 
 
+LogoutEvent(){
+  this.cookieService.set('EMPuserID',"");
+  this.cookieService.set('EMPCOMPID',"");
+  this.cookieService.set('EMPCOMPName',"");
+  this.cookieService.set('EMPtoken',"");
+  this.router.navigate(['login']);
+  
+  }
+
 
 }

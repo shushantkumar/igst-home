@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CookieService } from "ngx-cookie-service";
 import { RegserviceService } from '../../services/regservice.service';
+import { Router } from "@angular/router";
 
 
 @Component({
@@ -12,11 +13,15 @@ export class AllimportComponent implements OnInit {
   productsdata;
   constructor(
     private cookieService: CookieService,
-    private bottransService:RegserviceService
+    private bottransService:RegserviceService,
+    private router:Router
   ) { }
 
   ngOnInit() {
     this.getBuyTrans();
+    if(this.cookieService.get('COMPuserID')=="" ){
+      this.router.navigate(['login']);
+    }
   }
 
   getBuyTrans(){
@@ -32,5 +37,9 @@ export class AllimportComponent implements OnInit {
       () => console.log("done!")
     );
   }
-
+  LogoutEvent(){
+    this.cookieService.set('COMPuserID',"")
+    this.router.navigate(['login']);
+    
+    }
 }

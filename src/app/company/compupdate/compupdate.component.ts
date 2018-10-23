@@ -18,6 +18,9 @@ export class CompupdateComponent implements OnInit {
 
   ngOnInit() {
     this.getComDetails();
+    if(this.cookieService.get('COMPuserID')=="" ){
+      this.router.navigate(['login']);
+}
   }
 
   getComDetails(){
@@ -56,6 +59,12 @@ export class CompupdateComponent implements OnInit {
     );
 
   }
+
+  LogoutEvent(){
+    this.cookieService.set('COMPuserID',"")
+    this.router.navigate(['login']);
+    
+    }
 
 
 }

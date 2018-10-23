@@ -50,4 +50,25 @@ export class CompanyallService {
     .map(this.extractData)
     .catch(this.handleError);
   }
+
+  AddProduct(data){
+    let specificUrl = this.serverURL + '/products/' ;
+    let headers =  {headers: new  HttpHeaders({ 'Content-Type': 'application/json'})};
+    console.log(specificUrl);
+    return this.http.post(specificUrl,data,headers)
+    .map(this.extractData)
+    .catch(this.handleError);
+  }
+
+  deleteProduct(d1,d2){
+    let specificUrl = this.serverURL+'/products/'+d1 + '/' + d2+'';
+    // let headers =  {headers: new  HttpHeaders({ 'authorization':'Bearer '+this.cookieService.get('ENVtoken')})};
+    console.log(specificUrl);
+    // console.log(headers);
+    return this.http.delete(specificUrl)
+    .map(this.extractData)
+    .catch(this.handleError);
+  }
+
+
 }
