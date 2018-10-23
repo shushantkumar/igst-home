@@ -10,6 +10,9 @@ import { Http, Response, RequestOptions, Headers } from "@angular/http";
 import { BrowserModule } from "@angular/platform-browser";
 import { SelltransService } from './selltrans.service';
 
+declare var jsPDF: any;
+
+
 @Component({
   selector: 'app-selltrans',
   templateUrl: './selltrans.component.html',
@@ -89,7 +92,7 @@ export class SelltransComponent implements OnInit {
     this.newAttribute.code = meta.Product_Code;
     this.newAttribute.quantity = 1;
     this.newAttribute.maxquant = meta.Quantity;
-    
+    this.newAttribute.name = meta.Product_Name;
     this.newAttribute.gst = meta.GST_Rate;
     this.newAttribute.id = meta.Product_ID;
     this.newAttribute.actprice = meta.Cost_Price*(1+0.01*meta.GST_Rate);
@@ -171,13 +174,47 @@ SellTransaction(event){
   this.TotalCost = this.getGrossTotal();
   this.FromCompany = this.cookieService.get('EMPCOMPName');
   console.log("Starting here");
+  let temp = this.printconsole();
+  let prolos = this.getNetProfitLoss();
   // console.log(this.Emp_ID);
   // console.log(this.Comp_ID);
   // console.log(this.DOT);
   // console.log(this.FromCompany);
   // console.log(this.TotalCost);
-  let temp = this.printconsole();
-  let prolos = this.getNetProfitLoss();
+
+  let varna = [];
+  for(let i = 0; i < this.fieldArray.length; i++){
+    let temp = [];
+    temp[0] = this.fieldArray[i].id;
+    temp[2] = this.fieldArray[i].quantity;
+    temp[1] = this.fieldArray[i].name;
+    temp[3] = this.fieldArray[i].quantity * this.fieldArray[i].cost - this.fieldArray[i].quantity * this.fieldArray[i].actprice;
+    varna.push(temp);
+  }
+
+  let columns = ["Transaction_ID", "ToCompany", "FromCompany", "TotalCost", "DOT", "Comp_ID", "Emp_ID","Profit_Loss"];
+  let rows = [
+      [this.Transaction_ID, this.ToCompany,this.FromCompany,this.TotalCost,this.DOT,this.Comp_ID,this.Emp_ID,prolos],
+  ];
+
+  let columnp = ["Product ID","Product Name","Quantity","Net Profit Loss"];
+  // let rowsp = this.printconsole();
+
+  let doc = new jsPDF('l', 'pt');
+  doc.text('Sell Transaction Details', 14, 16);
+  doc.autoTable(columns, rows); 
+  // let doc1 = new jsPDF('l', 'pt');
+
+  doc.text('Product List', 14, doc.autoTable.previous.finalY + 20);
+  doc.autoTable(columnp, varna, {startY: doc.autoTable.previous.finalY + 20, theme: 'grid'});
+
+  // doc1.autoTable(columns, rows);
+  doc.save("SELL"+this.Transaction_ID+' '+ this.DOT +'.pdf');
+
+
+
+
+
   if(temp==0){ alert ("Order quantity cannot be greater than remaining quantity!"); }
   else {
     let data = {

@@ -10,6 +10,8 @@ import { Http, Response, RequestOptions, Headers } from "@angular/http";
 import { BrowserModule } from "@angular/platform-browser";
 import { BuytransService } from './buytrans.service';
 
+declare var jsPDF: any;
+
 @Component({
   selector: 'app-buytrans',
   templateUrl: './buytrans.component.html',
@@ -78,7 +80,7 @@ export class BuytransComponent implements OnInit {
   addFieldValue(meta){
     this.newAttribute.code = meta.Product_Code;
     this.newAttribute.quantity = 1;
-    
+    this.newAttribute.name = meta.Product_Name;
     this.newAttribute.gst = meta.GST_Rate;
     this.newAttribute.id = meta.Product_ID;
     this.newAttribute.cost = meta.Cost_Price*(1+0.01*meta.GST_Rate);
@@ -114,6 +116,8 @@ getGrossTotal(){
   }
   return sum.toFixed(2);
 }
+
+
 
 printconsole(){
   // console.log(this.fieldArray);
@@ -159,6 +163,38 @@ BuyTransaction(event){
   // console.log(this.DOT);
   // console.log(this.FromCompany);
   // console.log(this.TotalCost);
+
+  let varna = [];
+  for(let i = 0; i < this.fieldArray.length; i++){
+    let temp = [];
+    temp[0] = this.fieldArray[i].id;
+    temp[2] = this.fieldArray[i].quantity;
+    temp[1] = this.fieldArray[i].name;
+    temp[3] = this.fieldArray[i].quantity * this.fieldArray[i].cost;
+    varna.push(temp);
+  }
+
+  let columns = ["Transaction_ID", "ToCompany", "FromCompany", "TotalCost", "DOT", "Comp_ID", "Emp_ID"];
+  let rows = [
+      [this.Transaction_ID, this.ToCompany,this.FromCompany,this.TotalCost,this.DOT,this.Comp_ID,this.Emp_ID],
+  ];
+
+  let columnp = ["Product ID","Product Name","Quantity","Net Cost"];
+  // let rowsp = this.printconsole();
+
+  let doc = new jsPDF('l', 'pt');
+  doc.text('Buy Transaction Details', 14, 16);
+  doc.autoTable(columns, rows); 
+  // let doc1 = new jsPDF('l', 'pt');
+
+  doc.text('Product List', 14, doc.autoTable.previous.finalY + 10);
+  doc.autoTable(columnp, varna, {startY: doc.autoTable.previous.finalY + 14, theme: 'grid'});
+
+  // doc1.autoTable(columns, rows);
+  doc.save("BUY"+this.Transaction_ID+' '+ this.DOT +'.pdf');
+  // doc1.save('table1.pdf');
+
+  
   let data = {
     "BUYTRAN":{
       "Transaction_ID":this.Transaction_ID,
@@ -174,19 +210,19 @@ BuyTransaction(event){
   console.log(data);
 
   this.buytransService.BuyTransaction(data)
-.subscribe(
-  (response) => {
-  console.log(response);
+  .subscribe(
+    (response) => {
+        console.log(response);
 
-  
+        
 
-},
-(err) =>{
-},
-() => {console.log('done!');
-this.router.navigate(['home']);
-}
-);
+      },
+      (err) =>{
+      },
+      () => {console.log('done!');
+      this.router.navigate(['home']);
+      }
+  );
 }
 
 
@@ -199,7 +235,5 @@ LogoutEvent(){
   this.router.navigate(['login']);
   
   }
-
-
 
 }
