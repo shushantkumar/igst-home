@@ -236,9 +236,6 @@ SellTransaction(event){
     .subscribe(
       (response) => {
       console.log(response);
-
-    
-    
     },
     (err) =>{
     },
