@@ -9,7 +9,7 @@ import 'rxjs/add/observable/throw';
 
 @Injectable()
 export class TestryService {
-  _baseURL: string = 'https://agile-dawn-35104.herokuapp.com'
+  private serverURL ='https://can-man-be-brave-when-afraid.herokuapp.com';
   constructor(private http:HttpClient,private cookieService: CookieService) { }
 
   private extractData(res: Response) {
@@ -28,15 +28,86 @@ export class TestryService {
     return Observable.throw(errMsg);
   }
 
-  upload(files){
-    // let headers = new Headers();
-    let headers =  {headers: new  HttpHeaders({ 'Content-Type': 'application/form-data','authorization':'Bearer '+this.cookieService.get('ENVtoken')})};
-    // let options = new RequestOptions({ headers: headers });
-    // options.params = parameters;
-    return  this.http.post(this._baseURL + '/products/', files, headers)
-             .map(this.extractData)
-             .catch(this.handleError);
+//   upload(files){
+//     // let headers = new Headers();
+//     let headers =  {headers: new  HttpHeaders({ 'Content-Type': 'application/form-data','authorization':'Bearer '+this.cookieService.get('ENVtoken')})};
+//     // let options = new RequestOptions({ headers: headers });
+//     // options.params = parameters;
+//     return  this.http.post(this._baseURL + '/products/', files, headers)
+//              .map(this.extractData)
+//              .catch(this.handleError);
 
-}
+// }
+getCompanyLG(companyId,year){
+  let specificUrl = this.serverURL + '/stransact/g/' + companyId + '/'+year+ '/';
+  console.log(specificUrl);
+  return this.http.get(specificUrl)
+  .map(this.extractData)
+  .catch(this.handleError);
+  }
 
+getCompanyLGT(companyId){
+  let specificUrl = this.serverURL + '/stransact/gt/' + companyId + '/';
+  console.log(specificUrl);
+  return this.http.get(specificUrl)
+  .map(this.extractData)
+  .catch(this.handleError);
+  }
+  getCompanyLGM(companyId,year,month){
+    let specificUrl = this.serverURL + '/stransact/gm/' + companyId + '/'+year+'/'+ month +'/';
+    console.log(specificUrl);
+    return this.http.get(specificUrl)
+    .map(this.extractData)
+    .catch(this.handleError);
+    }
+
+  getCompanyEmpLG(companyId,empId,year){
+    let specificUrl = this.serverURL + '/stransact/g/' + companyId + '/'+ empId+'/'+year+ '/';
+    console.log(specificUrl);
+    return this.http.get(specificUrl)
+    .map(this.extractData)
+    .catch(this.handleError);
+    }
+
+  getCompanyEmpLGM(companyId,empId,year,month){
+    let specificUrl = this.serverURL + '/stransact/gm/' + companyId + '/'+ empId+'/'+year+ '/'+ month+ '/';
+    console.log(specificUrl);
+    return this.http.get(specificUrl)
+    .map(this.extractData)
+    .catch(this.handleError);
+    }  
+  
+    ProductgetCompanyLG(companyId,productId,year){
+      let specificUrl = this.serverURL + '/stransact/g/p/' + companyId + '/'+ productId+'/'+year+ '/';
+      console.log(specificUrl);
+      return this.http.get(specificUrl)
+      .map(this.extractData)
+      .catch(this.handleError);
+      }
+
+  ProductgetCompanyLGM(companyId,productId,year,month){
+      let specificUrl = this.serverURL + '/stransact/gm/p/' + companyId + '/'+ productId+'/'+year+ '/'+ month + '/';
+      console.log(specificUrl);
+      return this.http.get(specificUrl)
+      .map(this.extractData)
+      .catch(this.handleError);
+      }
+
+
+      ProductgetCompanyEmpLG(companyId,EmpId,productId,year){
+        let specificUrl = this.serverURL + '/stransact/g/p/' + companyId + '/'+ EmpId + '/'+ productId+'/'+year+ '/';
+        console.log(specificUrl);
+        return this.http.get(specificUrl)
+        .map(this.extractData)
+        .catch(this.handleError);
+        }
+
+      ProductgetCompanyEmpLGM(companyId,EmpId,productId,year,month){
+        let specificUrl = this.serverURL + '/stransact/gm/p/' + companyId + '/'+ EmpId + '/'+ productId+'/'+year+ '/'+month+ '/';
+        console.log(specificUrl);
+        return this.http.get(specificUrl)
+        .map(this.extractData)
+        .catch(this.handleError);
+        }
+      
 }
