@@ -3,7 +3,7 @@
   <div class="col-lg-3">
     <div class="wrapper" style="margin-left: -30px">
       <!-- Sidebar -->
-      <nav id="sidebar">
+      <nav id="sidebar" style="height:80vh">
           <ul class="list-unstyled components">
               <li>
                 <a href="home"><i class="fa fa-home" style="margin: 0px 12px 0px 10px"></i> Dashboard  </a>
@@ -43,11 +43,13 @@
 
     </div>
   </div>
-  <div class="col-lg-9">
+  <div class="col-lg-9" style="margin-left:-50px;background-image: url('https://s3.envato.com/files/120334242/Preview%20image%20set/blue-grey-light-blue.png');background-repeat: no-repeat;background-size: cover;padding:10px">
 
         <div class="row">
           <div class="col-lg-8">
-                <form class="form-inline" (submit)="SellTransaction($event)" style="padding-bottom:20px">
+                <b style="font-size: 20px;">Add the products below</b>
+                <form class="form-inline" (submit)="SellTransaction($event)" style="margin-bottom:20px;border:2px solid teal;border-radius: 10px;padding: 10px">
+                    
                     <div class="form-group">
                         
                       <input type="text" value="Date:         {{DOT}}" class="form-control" disabled>
@@ -58,7 +60,7 @@
                     </div>
                     <button type="submit" class="btn btn-warning">Sell</button>
                 </form>
-                <b>Add the products below</b>
+                
                 <table class="table table-striped table-bordered" style="margin-top:20px">
                         
                   <thead>
@@ -96,7 +98,7 @@
                   <tfoot>
                       <td></td>
                       <td>
-                            <button type="button" class="btn btn-primary" (click)="printconsole()" style="font-size:20px">-></button>
+                            <!-- <button type="button" class="btn btn-primary" (click)="printconsole()" style="font-size:20px">-></button> -->
                       </td>
                       <td></td>
                       <td>Gross Total (₹):</td>
@@ -108,7 +110,7 @@
                 <div class="col-lg-1">
                         <i class="fas fa-search" style="font-size:25px;padding-right:-60px"></i>
                     </div>
-                    <div class="col-lg-10">
+                    <div class="col-lg-10" style="padding-bottom:10px">
                         <input id="search" class="form-control" type="text" placeholder="Search by any field..." [(ngModel)]="search" required>   
                     </div>
                 <table class="table table-hover">

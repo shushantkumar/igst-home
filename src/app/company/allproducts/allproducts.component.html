@@ -1,180 +1,212 @@
 <div id="scroll-animate scroll-animate-main wrapper-parallax">
-  <header class="row" style="margin-top:-40px;padding-top:0px">
-    <div class="page-header" style="background-color:#2c2c2c">
-  
-      <div class="container">
-        <img class="col-lg-3 col-md-3 col-sm-6 col-xs-12 logo" src="../assets/igst.jpg" style="position:relative;margin-left:-150px;margin-top:10px;max-height:100px">
-        <b class="col-lg-6 col-md-6 col-sm-12 col-xs-12 " style="color:#da3730;font-size:40px;padding-top:25px;margin-left:-50px;vertical-align: middle;">
-          iGST
-          <b style="font-size:40px;color:white">|</b>
-          <small class="" style="color: #a6a6a6;font-size:20px;" > GST Invoice and Billing Application</small>
-        </b>
-        
-        <div *ngIf="editedSignIn" class="col-lg-3 col-md-3 col-sm-6 col-xs-6 " style="float:right">
-          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" style="float:right;margin-left:400px;margin-top:30px;font-size:30px;font-family:'Comic Sans MS', cursive, sans-serif" type="">Login</button>
-        </div>
-        <div [hidden]="editedSignOut" class="col-lg-3 col-md-3 col-sm-6 col-xs-6 " style="float:right">
-            <button type="button" class="btn btn-primary" style="float:right;margin-top:30px;font-size:30px;" (click)="LogoutEvent()"><i class="fas fa-sign-out-alt"></i></button>
-        </div>
-      </div>
-    </div>
-  </header>
+    <header class="row" style="margin-top:-40px;padding-top:0px">
+        <div class="page-header" style="background-color:#2c2c2c">
 
-  
+            <div class="container">
+                <img class="col-lg-3 col-md-3 col-sm-6 col-xs-12 logo" src="../assets/igst.jpg" style="position:relative;margin-left:-150px;margin-top:10px;max-height:100px">
+                <b class="col-lg-6 col-md-6 col-sm-12 col-xs-12 " style="color:#da3730;font-size:40px;padding-top:25px;margin-left:-50px;vertical-align: middle;">
+                    iGST
+                    <b style="font-size:40px;color:white">|</b>
+                    <small class="" style="color: #a6a6a6;font-size:20px;"> GST Invoice and Billing Application</small>
+                </b>
+
+                <div *ngIf="editedSignIn" class="col-lg-3 col-md-3 col-sm-6 col-xs-6 " style="float:right">
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" style="float:right;margin-left:400px;margin-top:30px;font-size:30px;font-family:'Comic Sans MS', cursive, sans-serif"
+                        type="">Login</button>
+                </div>
+                <div [hidden]="editedSignOut" class="col-lg-3 col-md-3 col-sm-6 col-xs-6 " style="float:right">
+                    <button type="button" class="btn btn-primary" style="float:right;margin-top:30px;font-size:30px;"
+                        (click)="LogoutEvent()"><i class="fas fa-sign-out-alt"></i></button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
 </div>
 
 <div class="container-fluid">
-  <div class="col-lg-3" >
-    <div class="wrapper" style="margin-left: -30px">
-      <!-- Sidebar -->
-      <nav id="sidebar" style="height:80vh">
-          <ul class="list-unstyled components">
-              <li>
-                <a href="company"><i class="fa fa-home" style="margin: 0px 12px 0px 10px"></i> Dashboard  </a>
-              </li>
-              <li class="active">
-                <a href="company/products"><i class="fa fa-cubes" style="margin: 0px 12px 0px 10px"></i> Products  </a>
-              </li>
-              <li>
-                <a href="company/imports"><i class="fa fa-sort-amount-up" style="margin: 0px 12px 0px 10px"></i> Imports  </a>
-              </li>
-              <li>
-                <a href="company/exports"><i class="fa fa-sort-amount-down" style="margin: 0px 12px 0px 10px"></i> Exports  </a>
-              </li>
+    <div class="col-lg-3">
+        <div class="wrapper" style="margin-left: -30px">
+            <!-- Sidebar -->
+            <nav id="sidebar" style="height:80vh">
+                <ul class="list-unstyled components">
+                    <li>
+                        <a href="company"><i class="fa fa-home" style="margin: 0px 12px 0px 10px"></i> Dashboard </a>
+                    </li>
+                    <li class="active">
+                        <a href="company/products"><i class="fa fa-cubes" style="margin: 0px 12px 0px 10px"></i>
+                            Products </a>
+                    </li>
+                    <li>
+                        <a href="company/imports"><i class="fa fa-sort-amount-up" style="margin: 0px 12px 0px 10px"></i>
+                            Imports </a>
+                    </li>
+                    <li>
+                        <a href="company/exports"><i class="fa fa-sort-amount-down" style="margin: 0px 12px 0px 10px"></i>
+                            Exports </a>
+                    </li>
 
-              <li>
-                  <a href="company/update"><i class="fa fa-edit" style="margin: 0px 12px 0px 10px"></i> Edit Company Details  </a>
-              </li>
-          </ul>
-      </nav>
+                    <li>
+                        <a href="company/update"><i class="fa fa-edit" style="margin: 0px 12px 0px 10px"></i> Edit
+                            Company Details </a>
+                    </li>
+                </ul>
+            </nav>
 
-    </div>
-  </div>
-  <div class="col-lg-9">
-      
-        <div class="container-fluid">
-            <p style="font-size:15px"><b>Enter a new product</b></p>
-                <form class="form-inline" (submit)="AddProduct($event)">
-                    
-                    <input type="text" class="form-control" placeholder="Product Code">
-                    
-                    <input type="text" class="form-control" placeholder="Product Name">
-                    <input type="number" class="form-control" placeholder="Cost Price">
-                    <input type="number" class="form-control" placeholder="GST Rate">
-
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                </form>
         </div>
-      <div class="container-fluid">
-          <div class="row" style="padding: 20px">
-              <div class="col-lg-1">
-                  <i class="fas fa-search" style="font-size:25px;padding-right:-60px"></i>
-              </div>
-              <div class="col-lg-9">
-                  <input id="search" class="form-control" type="text" placeholder="Search by any field..." [(ngModel)]="search" required>   
-              </div>
-          </div>
-          <table class="table table-hover">
-                  <thead>
-                      <tr>
-                          <th>#</th>
-                          <th></th>
-                          <th>Product Code</th>
-                          <th>Product Name</th>
-                          <th>Cost Price (₹)</th>
-                          <th>GST Rate (%)</th>
-                          <th>Quantity</th>
-                          <th>Actions</th>
-                      </tr>
-                  </thead>
-                  <tbody>
-                      <tr *ngFor="let meta of productsdata | filter:search">
-                          <th scope="row">1</th>
-                          <td>
-                              <fieldset class="form-group">
-                                  <input type="checkbox" id="checkbox1">
-                                  <label for="checkbox1"></label>
-                              </fieldset>
-                          </td>
-                          <td>{{meta.Product_Code}}</td>
-                          <td>{{meta.Product_Name}}</td>
-                          <td>{{meta.Cost_Price}}</td>
-                          <td>{{meta.GST_Rate}}</td>
-                          <td>{{meta.Quantity}}</td>
-                          <td>
-                              <button type="button" class="btn btn-primary"  data-toggle="modal" data-target="#updateRequestItem" (click)="updateRequest(meta)"><i class="far fa-edit" style="margin-right: 5px"></i>Edit</button>
-                              <button type="button" class="btn btn-danger" (click)="deleteProduct(meta)"><i class="fa fa-trash-alt"style="margin-right: 5px"></i>Delete</button>
-                          </td>
-                      </tr>
-              
-                  </tbody>
-          </table>
     </div>
-    
+    <div class="col-lg-9" style="background-image: url('https://s3.envato.com/files/120334242/Preview%20image%20set/blue-grey-light-blue.png');background-repeat: no-repeat;background-size: cover;padding:10px">
 
-  </div>
- 
- </div>
- <div class="modal fade" id="updateRequestItem" role="dialog" style="margin-top:20px;">
-  <div class="modal-dialog modal-lg">
-      <div class="modal-content" style="background: url('https://us.123rf.com/450wm/fascinadora/fascinadora1607/fascinadora160700020/60259862-marble-board-empty-table-in-front-of-blurred-background-perspective-marble-table-over-blurred-colorf.jpg?ver=6');background-position: center;background-repeat: no-repeat;background-size: cover;">
-          <div class="card-body container" style="text-align:center;height:100%;width:100%;padding:30px"> 
-              <div class="col-lg-12" style="margin-bottom:25px">
-                  <b style="font-size:25px;">Update Item details below</b>
-              </div>
+        <div class="container-fluid" style="margin-bottom:20px;border:2px solid teal;border-radius: 10px;padding: 10px">
+            <p style="font-size:15px"><b>Enter a new product</b></p>
+            <form class="form-inline" (submit)="AddProduct($event)">
 
-              <form  (submit)="updateRequestItem($event)">
-                  <div class="form-group row" style="padding:10px 20px 10px 20px"> 
-                      <div class="col-lg-3"> 
-                          <label class="control-label" style="font-size:17px;color:#5D1049">Product Code</label>
-                      </div>
-                      <div class="col-lg-6">
-                          <input id="userAddress" type="text" class="form-control"  style="height: 40px;" value={{particular.Product_Code}}>
-                      </div>
-                              
-                  </div>
-                  <div class="form-group row" style="padding:10px 20px 10px 20px"> 
-                      <div class="col-lg-3"> 
-                          <label class="control-label" style="font-size:17px">Product Name</label>
-                      </div>
-                      <div class="col-lg-6">
-                          <input id="userName" type="text" class="form-control"  style="height: 40px;" value={{particular.Product_Name}}>
-                      </div>
-                      
-                  </div>
-                  <div class="form-group row" style="padding:10px 20px 10px 20px"> 
-                      <div class="col-lg-3"> 
-                          <label class="control-label" style="font-size:17px">Cost Price</label>
-                      </div>
-                      <div class="col-lg-6">
-                          <input id="userAddress" type="text" class="form-control"  style="height: 40px;"  value={{particular.Cost_Price}}>
-                      </div>
-                          
-                  </div>
-                  <div class="form-group row" style="padding:10px 20px 10px 20px"> 
-                      <div class="col-lg-3"> 
-                          <label class="control-label" style="font-size:17px">GST Rate</label>
-                      </div>
-                      <div class="col-lg-6">
-                          <input id="userEmail" type="text" class="form-control"  style="height: 40px;"  value={{particular.GST_Rate}}>
-                      </div>
-                          
-                  </div>
-                  <div class="form-group row" style="padding:10px 20px 10px 20px"> 
-                      <div class="col-lg-3"> 
-                          <label class="control-label" style="font-size:17px">Quantity</label>
-                      </div>
-                      <div class="col-lg-6">
-                          <input id="userMobile" type="text" class="form-control"  style="height: 40px;" value={{particular.Quantity}}>
-                      </div>
-                              
-                  </div>
-                  <button type="submit" class="btn btn-primary" ><i class="fas fa-check"></i><b style="padding-left:10px">Update</b></button>
-                  <!-- <button type="button" class="btn btn-danger"  (click)="deleteRequestItem()"><i class="far fa-trash-alt"></i><b style="padding-left:10px">Delete</b></button> -->
+                <input type="text" class="form-control" placeholder="Product Code">
+
+                <input type="text" class="form-control" placeholder="Product Name">
+                <input type="number" class="form-control" placeholder="Cost Price">
+                <input type="number" class="form-control" placeholder="GST Rate">
+
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+        <div class="container-fluid">
+            <div class="row" style="padding: 20px">
+                <div class="col-lg-1">
+                    <i class="fas fa-search" style="font-size:25px;padding-right:-60px"></i>
+                </div>
+                <div class="col-lg-9">
+                    <input id="search" class="form-control" type="text" placeholder="Search by any field..."
+                        [(ngModel)]="search" required>
+                </div>
+            </div>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Product Code</th>
+                        <th>Product Name</th>
+                        <th>Cost Price (₹)</th>
+                        <th>GST Rate (%)</th>
+                        <th>Quantity</th>
+                        <th>Actions</th>
+                        <th>Graph</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let meta of productsdata | filter:search">
+                        <th scope="row">1</th>
+                        <td>{{meta.Product_Code}}</td>
+                        <td>{{meta.Product_Name}}</td>
+                        <td>{{meta.Cost_Price}}</td>
+                        <td>{{meta.GST_Rate}}</td>
+                        <td>{{meta.Quantity}}</td>
+                        <td>
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#updateRequestItem"
+                                (click)="updateRequest(meta)"><i class="far fa-edit" style="margin-right: 5px"></i>Edit</button>
+                            <button type="button" class="btn btn-danger" (click)="deleteProduct(meta)"><i class="fa fa-trash-alt"
+                                    style="margin-right: 5px"></i>Delete</button>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#ProductgetCompanyLG"
+                                (click)="ProductgetCompanyLG(meta)"><i class="far fa-chart-bar" style="margin-right: 5px"></i>Yearly</button>
+                            <button type="button" class="btn btn-warning"  data-toggle="modal" data-target="#ProductgetCompanyLGM" (click)="ProductgetCompanyLGM(meta)"><i class="fa fa-chart-line"
+                                    style="margin-right: 5px"></i>Monthly</button>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+
+
+    </div>
+
+</div>
+
+<div id="ProductgetCompanyLG" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div id="chartContainer3" style="height: 500px; width: 900px;"></div>
+        </div>
+
+    </div>
+</div>
+
+<div id="ProductgetCompanyLGM" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div id="chartContainer7" style="height: 500px; width: 900px;"></div>
+        </div>
+
+    </div>
+</div>
+
+<div class="modal fade" id="updateRequestItem" role="dialog" style="margin-top:20px;">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content" style="background: url('https://us.123rf.com/450wm/fascinadora/fascinadora1607/fascinadora160700020/60259862-marble-board-empty-table-in-front-of-blurred-background-perspective-marble-table-over-blurred-colorf.jpg?ver=6');background-position: center;background-repeat: no-repeat;background-size: cover;">
+            <div class="card-body container" style="text-align:center;height:100%;width:100%;padding:30px">
+                <div class="col-lg-12" style="margin-bottom:25px">
+                    <b style="font-size:25px;">Update Item details below</b>
+                </div>
+
+                <form (submit)="updateRequestItem($event)">
+                    <div class="form-group row" style="padding:10px 20px 10px 20px">
+                        <div class="col-lg-3">
+                            <label class="control-label" style="font-size:17px;color:#5D1049">Product Code</label>
+                        </div>
+                        <div class="col-lg-6">
+                            <input id="userAddress" type="text" class="form-control" style="height: 40px;" value={{particular.Product_Code}}>
+                        </div>
+
+                    </div>
+                    <div class="form-group row" style="padding:10px 20px 10px 20px">
+                        <div class="col-lg-3">
+                            <label class="control-label" style="font-size:17px">Product Name</label>
+                        </div>
+                        <div class="col-lg-6">
+                            <input id="userName" type="text" class="form-control" style="height: 40px;" value={{particular.Product_Name}}>
+                        </div>
+
+                    </div>
+                    <div class="form-group row" style="padding:10px 20px 10px 20px">
+                        <div class="col-lg-3">
+                            <label class="control-label" style="font-size:17px">Cost Price</label>
+                        </div>
+                        <div class="col-lg-6">
+                            <input id="userAddress" type="text" class="form-control" style="height: 40px;" value={{particular.Cost_Price}}>
+                        </div>
+
+                    </div>
+                    <div class="form-group row" style="padding:10px 20px 10px 20px">
+                        <div class="col-lg-3">
+                            <label class="control-label" style="font-size:17px">GST Rate</label>
+                        </div>
+                        <div class="col-lg-6">
+                            <input id="userEmail" type="text" class="form-control" style="height: 40px;" value={{particular.GST_Rate}}>
+                        </div>
+
+                    </div>
+                    <div class="form-group row" style="padding:10px 20px 10px 20px">
+                        <div class="col-lg-3">
+                            <label class="control-label" style="font-size:17px">Quantity</label>
+                        </div>
+                        <div class="col-lg-6">
+                            <input id="userMobile" type="text" class="form-control" style="height: 40px;" value={{particular.Quantity}}>
+                        </div>
+
+                    </div>
+                    <button type="submit" class="btn btn-primary"><i class="fas fa-check"></i><b style="padding-left:10px">Update</b></button>
+                    <!-- <button type="button" class="btn btn-danger"  (click)="deleteRequestItem()"><i class="far fa-trash-alt"></i><b style="padding-left:10px">Delete</b></button> -->
                 </form>
-          </div>
-      </div>
-  </div>
+            </div>
+        </div>
+    </div>
 </div>
 ​
 

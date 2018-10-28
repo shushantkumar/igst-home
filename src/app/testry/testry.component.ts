@@ -345,6 +345,7 @@ getCompanyLGT() {
       () => console.log("done!")
     );
   }
+  
   ProductgetCompanyLGM() {
     console.log("Something is going on!");
     // let data = this.cookieService.get("EMPCOMPID");

@@ -1,3 +1,59 @@
+
+table{
+    border:2px solid teal;
+    border-collapse:separate ;
+    padding:20px;
+    border-radius: 10px;
+}
+
+th{
+    padding:10px;
+    border:1px solid teal;
+    background-color:teal;
+	
+}
+
+td{
+    padding:10px;
+     border:1px solid black;
+	text-align:left;
+}
+
+tr:nth-child(even)
+{
+      background-color:white;
+}
+
+tr:nth-child(odd)
+{
+      background-color:#eee;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .wrapper {
     display: flex;
     align-items: stretch;
