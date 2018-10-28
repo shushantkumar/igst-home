@@ -4,7 +4,6 @@ import { CookieService } from "ngx-cookie-service";
 import * as CanvasJS from "../../testry/canvasjs.min";
 import { TestryService } from '../../testry/testry.service';
 
-
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
@@ -14,7 +13,9 @@ export class MainComponent implements OnInit {
   productsdata;
   table2;
   table6;
-  
+  dat1;
+  dat2;
+  dat3;
   constructor(
     private cookieService: CookieService,
     private router:Router,
@@ -26,6 +27,7 @@ export class MainComponent implements OnInit {
   ngOnInit() {
     this.getCompanyEmpLG();
     this.getCompanyEmpLGM();
+    this.getDetailsEmp();
   }
   gotoPost()
   {
@@ -34,6 +36,24 @@ export class MainComponent implements OnInit {
    
   }
 
+  getDetailsEmp(){
+    var empId=this.cookieService.get( 'EMPuserID' );
+    // this.cookieService.get( 'EMPtoken' );
+    var Company_ID=this.cookieService.get( 'EMPCOMPID' );
+    this.testryService.getDetailsEmp(Company_ID,empId).subscribe(
+      res => {
+        console.log(res);
+        // this.dat4 = res.countE;
+        this.dat2 = res.countS;
+        this.dat3 = res.countB;
+        this.dat1 = res.TotalPL;
+
+        // this.productsdata = response;
+      },
+      err => console.log(err),
+      () => console.log("done!")
+    );
+  }
       
   getCompanyEmpLG() {
     console.log("Something is on!");

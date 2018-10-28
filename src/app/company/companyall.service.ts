@@ -33,6 +33,13 @@ export class CompanyallService {
     return Observable.throw(errMsg);
   }
 
+  getDetails(data){
+    let specificUrl = this.serverURL + '/company/head/' + data + '/';
+    console.log(specificUrl);
+    return this.http.get(specificUrl)
+    .map(this.extractData)
+    .catch(this.handleError);
+  }
   
   getAllProducts(data){
     let specificUrl = this.serverURL + '/products/' + data + '/';

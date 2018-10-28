@@ -28,6 +28,13 @@ export class TestryService {
     return Observable.throw(errMsg);
   }
 
+  getDetailsEmp(data1,data2){
+    let specificUrl = this.serverURL + '/employee/head/' + data1 + '/'+data2+ '/';
+    console.log(specificUrl);
+    return this.http.get(specificUrl)
+    .map(this.extractData)
+    .catch(this.handleError);
+  }
 //   upload(files){
 //     // let headers = new Headers();
 //     let headers =  {headers: new  HttpHeaders({ 'Content-Type': 'application/form-data','authorization':'Bearer '+this.cookieService.get('ENVtoken')})};
@@ -48,6 +55,15 @@ getCompanyLG(companyId,year){
 
 getCompanyLGT(companyId){
   let specificUrl = this.serverURL + '/stransact/gt/' + companyId + '/';
+  console.log(specificUrl);
+  return this.http.get(specificUrl)
+  .map(this.extractData)
+  .catch(this.handleError);
+  }
+
+  
+getCompanyEMPLGT(companyId,empID){
+  let specificUrl = this.serverURL + '/stransact/gt/' + companyId + '/' + empID + '/';
   console.log(specificUrl);
   return this.http.get(specificUrl)
   .map(this.extractData)

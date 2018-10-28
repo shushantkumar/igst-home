@@ -3,7 +3,7 @@ import { CookieService } from 'ngx-cookie-service';
 import {Router} from '@angular/router';
 import * as CanvasJS from "../testry/canvasjs.min";
 import { TestryService } from '../testry/testry.service';
-
+import { CompanyallService } from './companyall.service';
 @Component({
   selector: 'app-company',
   templateUrl: './company.component.html',
@@ -13,10 +13,16 @@ export class CompanyComponent implements OnInit {
   table1;
   table5;
   table9;
+  dat1;
+  dat2;
+  dat3;
+  dat4;
+  
   constructor(
     private testryService: TestryService,
     private cookieService: CookieService,
-    private router: Router
+    private router: Router,
+    private companyser:CompanyallService
   ) { }
 
   ngOnInit() {
@@ -26,12 +32,30 @@ export class CompanyComponent implements OnInit {
   this.getCompanyLG();
   this.getCompanyLGM();
   this.getCompanyLGT();
+  this.getDetails();
 }
 
 LogoutEvent(){
   this.cookieService.set('COMPuserID',"")
   this.router.navigate(['login']);
   
+  }
+
+  getDetails(){
+    let data = this.cookieService.get('COMPuserID');
+    this.companyser.getDetails(data).subscribe(
+      res => {
+        console.log(res);
+        this.dat1 = res.countE;
+        this.dat2 = res.countS;
+        this.dat3 = res.countB;
+        this.dat4 = res.TotalPL;
+
+        // this.productsdata = response;
+      },
+      err => console.log(err),
+      () => console.log("done!")
+    );
   }
 
   getCompanyLG() {
